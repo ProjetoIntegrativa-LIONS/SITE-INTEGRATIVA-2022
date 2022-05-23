@@ -14,7 +14,7 @@ Download do python for windows
 
 ATENÇÃO OS COMANDO VARIAM DO TIPO DE CONSOLE CMD PARA SHELL E PYTHON, se não rodar troque o console.
 
-python3 -m venv \AmbienteVirtual
+python3 -m venv AmbienteVirtual
 
 .\AmbienteVirtual\Scripts\activate.bat
 
