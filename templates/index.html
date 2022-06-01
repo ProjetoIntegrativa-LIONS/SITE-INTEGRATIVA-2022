@@ -1,15 +1,41 @@
 {% block html %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<h1>Leonardo</h1>
-</body>
-</html>
+<html lang="pt-br">
+    
+    {% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- carregamento css padrao -->
+        {% block metaDinamico %}
+        {% endblock metaDinamico %}
 
+        {% block styleDinamico %}
+        {% endblock styleDinamico %}
+    </head>
+    {% endblock head %}
+	
+    {% block body %}
+    <body>
+        {% block header %}
+            {% block headerPadrao %}
+            <h1>HEADER PADRAO</h1>
+            {% endblock headerPadrao %}
+        {% endblock header %}
+
+        {% block conteudo %}
+        {% endblock conteudo %}
+
+        {% block footer %}
+            {% block footerPadrao %}                
+            {% endblock footerPadrao %}
+        {% endblock footer %}
+
+        {% block scritsDinamicos %}
+        {% endblock scritsDinamicos %}          
+		
+    </body>
+    {% endblock body %} 
+</html>
 {% endblock html %}

@@ -26,9 +26,24 @@ class LogEnum(Enum):
     banco = 'comando banco'
 
 class Funcoes(object):
+
     @staticmethod
     def cifrarSenha(senha):
         return sha3_256(senha.encode('utf-8')).hexdigest()
+
+    @staticmethod
+    def PegarTipoDispositivo(user_agent):        
+        user_agent = user_agent.lower()
+        if "iphone" in user_agent:
+            #print("iphone");
+            return "mobile";            
+        elif "android" in user_agent:            
+            #print("android")
+            return "mobile";            
+        else:
+            #print("desktop");
+            return "desktop"
+            
 
     @staticmethod
     def criaLog(tipo, status, rota, usuario, mensagem):
