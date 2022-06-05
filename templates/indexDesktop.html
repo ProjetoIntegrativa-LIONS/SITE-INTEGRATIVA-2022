@@ -12,6 +12,8 @@
         {% endblock metaDinamico %}
 
         {% block styleDinamico %}
+        <!-- <link href="static/assets/css/main.css" rel="stylesheet"> -->
+        <link href="{{url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
         {% endblock styleDinamico %}
     </head>
     {% endblock head %}
