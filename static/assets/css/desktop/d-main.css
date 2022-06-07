@@ -1,0 +1,107 @@
+/* GERAL */
+.container{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+/* END GERAL */
+
+/* HEADER */
+header{
+    width: 100%;
+    background-color: #f6f6f6;
+    font-size: 1.2rem;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+header.desktop section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+header.desktop section div img{
+    max-width: 300px;
+}
+header.desktop ul{
+ display: flex;   
+}
+header.desktop ul li a{
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: all 250ms linear 0s;
+    color: var(--cor-preta);
+}
+header.desktop ul li a:hover{
+    cursor: pointer;
+}
+header.desktop ul li a:hover:after{
+    position: absolute;
+    content: '';
+    background: var(--cor-preta);
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+/* END HEADER */
+
+/* FOOTER */
+footer.desktop{
+    width: 100%;
+    background-color: var(--cor-secundaria-azul-escuro);
+    font-size: 1.2rem;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+footer.desktop section{
+    padding: 50px 0;
+}
+footer.desktop section div ul{
+    display: flex;
+}
+footer.desktop section div ul li{
+    padding: 20px 10px;
+}
+footer.desktop section div ul li a{
+    color: var(--cor-branca);
+}
+footer.desktop section div ul li a:hover{
+    cursor: pointer;
+    
+}
+footer.desktop section div ul li:hover:after {
+    position: absolute;
+    content: '';
+    background: var(--cor-branca);
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+footer.desktop section div.whatsapp{
+    transition: transform 1.2s
+}
+
+footer.desktop section div.whatsapp a{
+    position:fixed;
+    bottom:40px;
+    right:50px;
+}
+footer.desktop section div.whatsapp a:hover{
+    transform: scale(1.2);
+}
+/* END FOOTER */
+

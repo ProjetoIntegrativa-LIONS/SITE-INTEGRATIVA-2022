@@ -1,1 +1,29 @@
-*{color: red;}
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+:root {
+    --cor-principal-amarela: #EBB700;
+    --cor-principal-azul: #00338D;
+    --cor-principal-cinza: #55565A;
+    --cor-secundaria-azul-claro: #407CCA;
+    --cor-secundaria-azul-escuro: #0D2240;
+    --cor-secundaria-cinza-claro: #B3B2B1;
+    --cor-secundaria-roxo: #7A2582;
+    --cor-secundaria-verde: #00AB68;
+    --cor-secundaria-rosa: #FF5B35;
+    --cor-branca: #ffffff;
+    --cor-preta: #000000;
+  }
+  *{
+      margin: 0;
+      padding: 0; 
+      text-decoration: none;
+      list-style: none;
+      position: relative;
+      box-sizing: border-box;
+      outline: 0;
+  }
+  html, body{
+    height: 100vh;
+    font-family: "Helvetica Neue", HelveticaNeue, "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
+    font-size: 62.5%;
+  }
+  
