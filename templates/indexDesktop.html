@@ -31,6 +31,9 @@
                                 <li><a href="#">Quem somos</a></li>
                                 <li><a href="#">Projetos</a></li>
                                 <li><a href="#">Contato</a></li>
+                                <li>
+                                    <a href="#" id="cronometroTempo"></a>
+                                </li>
                             </ul>
                         </nav>
                     </section>
@@ -64,9 +67,58 @@
             </footer>             
             {% endblock footerPadrao %}
         {% endblock footer %}
+         
+     
+        {% block scriptsDinamicos %}
 
-        {% block scritsDinamicos %}
-        {% endblock scritsDinamicos %}          
+        <script>
+
+            var IDLE_TIMEOUT = "{{ 60 * 60 }}"
+            var tempo = IDLE_TIMEOUT;
+            document.onclick = function () {
+                IDLE_TIMEOUT = tempo;
+            };    
+            document.onkeypress = function () {
+                IDLE_TIMEOUT = tempo;
+            };
+    
+            window.setInterval(CheckIdleTime, 1000);
+            
+
+            function CheckIdleTime() {
+
+                IDLE_TIMEOUT--;
+                                
+                var min = parseInt((IDLE_TIMEOUT/60 ) );                
+                var seg = IDLE_TIMEOUT % 60;
+
+                var oPanel = document.getElementById("cronometroTempo");
+                
+                var concatenacao = "";                                
+                if (min<10){
+                    concatenacao+="0"+min+":";
+                }else{
+                    concatenacao+= min+":";
+                }
+
+                if (seg<10){
+                    concatenacao+="0"+seg;
+                }else{
+                    concatenacao+= seg;
+                }
+
+                if (oPanel) {
+                    oPanel.innerHTML = (concatenacao);
+                }
+
+
+                if (IDLE_TIMEOUT == 0) {
+                    alert("Time expired!");
+                    window.open(" {{ url_for('home.rotaHome') }} ", '_self')
+                }
+            }
+        </script>
+        {% endblock scriptsDinamicos %}          
 		
     </body>
     {% endblock body %} 

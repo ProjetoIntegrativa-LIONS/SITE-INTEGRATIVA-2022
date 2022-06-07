@@ -44,10 +44,14 @@
            </section>
       </main>
      {% endblock conteudo %}
+
      {% block footer %}
           {{ super() }}
           
      {% endblock footer %}
 
+     {% block scriptsDinamicos %}
+         {{ super() }}
+     {% endblock scriptsDinamicos %}
 
 {% endblock body %}
