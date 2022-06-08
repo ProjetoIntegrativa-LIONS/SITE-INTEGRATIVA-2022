@@ -29,14 +29,15 @@
                         </div>
                         <nav>
                             <ul>
-                                <li><a href="#">Início</a></li>
-                                <li><a href="#">Quem somos</a></li>
-                                <li><a href="#">Projetos</a></li>
-                                <li><a href="#">Contato</a></li>
-                                <li><a href="{{ url_for('login.login') }}">Admin</a></li>
                                 <li>
                                     <a href="#" id="cronometroTempo"></a>
                                 </li>
+                                <li><a href="{{ url_for('home.rotaHome') }}">Início</a></li>
+                                <li><a href="{{ url_for('quemSomos.quemSomos') }}">Quem somos</a></li>
+                                <li><a href="{{ url_for('projetos.projetos') }}">Projetos</a></li>
+                                <li><a href="{{ url_for('contatos.contatos') }}">Contato</a></li>
+                                <li><a href="{{ url_for('login.login') }}">Admin</a></li>
+                                
                             </ul>
                         </nav>
                     </section>
