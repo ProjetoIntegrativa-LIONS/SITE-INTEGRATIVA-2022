@@ -9,9 +9,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Quem somos ADM</a></li>
-                <li><a href="#">Projetos ADM</a></li>
-                <li><a href="#">Contato ADM</a></li>
+                <li><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos ADM</a></li>
+                <li><a href="{{ url_for('admin.AdmProjetos') }}">Projetos ADM</a></li>
+                <li><a href="{{ url_for('admin.AdmContato') }}">Contato ADM</a></li>
                 <li><a href="{{ url_for('login.logoff') }}">Logoff</a></li>
                 <li>
                     <a href="#" id="cronometroTempo"></a>
@@ -24,7 +24,6 @@
 
 {% block conteudo %}
 <section class="second container">
-    <h2>Título</h2>
     <div>
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

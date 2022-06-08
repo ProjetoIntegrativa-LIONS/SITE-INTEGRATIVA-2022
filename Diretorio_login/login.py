@@ -27,7 +27,11 @@ def logar():
     else:
         return render_template( "loginDesktop.html" , falhalogin=1)
 
-
+@bp_login.route("/timeOut")
+def timeOut():
+    if 'nome' in session:
+        session.pop('nome' , None)    
+    return redirect(url_for("home.rotaHome"))
 
 def validarSessao(f):
     @wraps(f)
