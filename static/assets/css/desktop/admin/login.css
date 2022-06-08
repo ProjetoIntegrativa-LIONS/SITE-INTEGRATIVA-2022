@@ -1,0 +1,81 @@
+main.desktop{
+
+}
+main.desktop > section div.login{
+    margin: auto;
+    font-size: 1.6rem;
+}
+main.desktop > section div.panel-login{
+    margin: 50px;
+    min-width: 310px;
+}
+main.desktop > section div.header{
+    text-align: center;
+}
+main.desktop > section div.header h1{
+    color: #24292f;
+    font-size: 2.4rem;
+    font-weight: 300;
+}
+main.desktop > section div.header img{
+    max-width: 80px;
+}
+main.desktop > section div.body{
+    border: 1px solid hsla(210,18%,87%,1);
+    background-color: #f6f8fa;
+    border-radius: 5px;
+    padding: 15px 30px;
+}
+main.desktop .item-form{
+    display: grid;
+    margin-bottom: 16px;
+}
+main.desktop label{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+main.desktop .label-link{
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main.desktop .label-link a{
+    font-size: 1.2rem;
+    float: right;
+    color: var(--cor-link-azul);
+}
+main.desktop input{
+    display: block;
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    background-color: var(--cor-branca);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    box-shadow: var(--color-primer-shadow-inset);
+    transition: 80mscubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;
+}
+main.desktop .button{
+    background-color: hsla(137,55%,36%,1);
+    color: var(--cor-branca);
+    cursor: pointer;
+}
+main.desktop .footer{
+    border: 1px solid hsla(210,18%,87%,1);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+main.desktop .back{
+    margin-top: 20px;
+}
+main.desktop .back a{
+    color: var(--cor-link-azul);
+}
