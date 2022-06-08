@@ -6,24 +6,7 @@
 {% endblock styleDinamico %}
 
 {% block headerPadrao %}
-<!-- <header class="desktop">
-    <section class="container">
-        <div>
-            <img src="{{url_for('static', filename='assets/images/logotipo-2-original.png')}}" alt="Logotipo do Lions Clube Internacional">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos ADM</a></li>
-                <li><a href="{{ url_for('admin.AdmProjetos') }}">Projetos ADM</a></li>
-                <li><a href="{{ url_for('admin.AdmContato') }}">Contato ADM</a></li>
-                <li><a href="{{ url_for('login.logoff') }}">Logoff</a></li>
-                <li>
-                    <a href="#" id="cronometroTempo"></a>
-                </li>
-            </ul>
-        </nav>
-    </section>
-</header> -->
+
 <header class="desktop-admin">
     <div class="logo mb-30">
         <img class="mb-15" src="{{url_for('static', filename='assets/images/logo-1-original.jpg')}}"
@@ -32,57 +15,43 @@
     </div>
     <nav>
         <ul>
-            <li><a class="select-menu" href="">Início</a></li>
-            <li><a href="">Quem somos</a></li>
-            <li><a href="">Projetos</a></li>
-            <li><a href="">Contatos</a></li>
+            <li><a class="select-menu" href="{{ url_for('admin.homeAdmin') }}">Início</a></li>
+            <li><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos</a></li>
+            <li><a href="{{ url_for('admin.AdmProjetos') }}">Projetos</a></li>
+            <li><a href="{{ url_for('admin.AdmContato') }}">Contatos</a></li>
         </ul>
     </nav>
 </header>
 {% endblock headerPadrao %}
 
 {% block conteudo %}
+
 <main class="desktop">
-    <section class="header container">
-        <h1>Nome da tela</h1>
-        <div>
-            <label>Usuário: Nome</label>
-            <span>|</span>
-            <a href="">Sair</a>
-        </div>
-    </section>
-    <hr>
-    <section class="body container">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#ID</th>
-                <th scope="col">Título</th>
-                <th scope="col">Data</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">#{}</th>
-                <td>Teste 1</td>
-                <td>10/10/2022</td>
-              </tr>
-              <tr>
-                <th scope="row">#2</th>
-                <td>Teste 2</td>
-                <td>11/10/2022</td>
-              </tr>
-              <tr>
-                <th scope="row">#3</th>
-                <td>Teste 3</td>
-                <td>12/10/2022</td>
-              </tr>
-            </tbody>
-          </table>
-    </section>
-    <section class="footer container"></section>
+    {% block configuracaoTela %}
+        <section class="header container">
+            <h1>Nome da tela</h1>
+            <div>
+                <label>Usuário: Nome</label>
+                <span>|</span>
+                <a href="{{ url_for('login.logoff') }}">Sair</a>
+            </div>
+        </section>
+        <hr>
+    {% endblock configuracaoTela %}    
+
+    {% block listagemDados %}        
+
+    {% endblock listagemDados %}
+    
+    {% block footerConteudo %}
+        <section class="footer container">
+
+        </section>
+    {% endblock footerConteudo %}
+
 </main>
 
 {% endblock conteudo %}
+
 {% block footer %}
 {% endblock footer %}

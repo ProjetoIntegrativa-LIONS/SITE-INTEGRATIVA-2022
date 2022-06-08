@@ -1,6 +1,24 @@
 {% extends 'baseAdminDesktop.html' %}
-{{ super() }}
 
-{% block conteudo %}
-    <h1>QUEM SOMOS ADMIN QUEM SOMOS ADMIN QUEM SOMOS ADMIN QUEM SOMOS ADMIN QUEM SOMOS ADMIN QUEM SOMOS ADMIN QUEM SOMOS ADMIN QUEM SOMOS ADMIN</h1>
-{% endblock conteudo %}
+
+{% block listagemDados %}
+<section class="body container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Título</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr>
+            <th scope="row">#2</th>
+            <td>QUEM SOMOS 1</td>
+            <td>10/10/2022</td>
+          </tr>          
+        </tbody>
+      </table>
+</section>
+{% endblock listagemDados %}
