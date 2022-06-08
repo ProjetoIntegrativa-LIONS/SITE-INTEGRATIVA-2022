@@ -1,10 +1,13 @@
 from dis import dis
+import imp
 from flask import Flask , render_template,  session, request
 from datetime import timedelta
 import os
 
 from Diretorio_home.home import bp_home
 from Diretorio_projetos.projetos import bp_projetos
+from Diretorio_login.login import bp_login
+from Diretorio_admin.admin import bp_admin
 from funcoes import Funcoes
 
 
@@ -13,8 +16,9 @@ app = Flask(__name__)
 app.secret_key = os.urandom(12).hex()
 
 app.register_blueprint(bp_home)
-
 app.register_blueprint(bp_projetos)
+app.register_blueprint(bp_login)
+app.register_blueprint(bp_admin)
 
 @app.errorhandler(404)
 def rotaErro404(error):
