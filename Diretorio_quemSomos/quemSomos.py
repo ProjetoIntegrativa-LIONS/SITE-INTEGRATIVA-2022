@@ -6,4 +6,4 @@ bp_quemSomos = Blueprint('quemSomos',__name__, url_prefix="/quemSomos", template
 
 @bp_quemSomos.route("/" )
 def quemSomos():
-    return render_template('QuemSomos.html')
+    return Funcoes.CarregarRota('QuemSomosDesktop.html', 'QuemSomosMobile.html')    
