@@ -8,6 +8,7 @@ from Diretorio_home.home import bp_home
 from Diretorio_projetos.projetos import bp_projetos
 from Diretorio_login.login import bp_login
 from Diretorio_admin.admin import bp_admin
+from Diretorio_quemSomos.quemSomos import bp_quemSomos
 from funcoes import Funcoes
 
 
@@ -19,6 +20,7 @@ app.register_blueprint(bp_home)
 app.register_blueprint(bp_projetos)
 app.register_blueprint(bp_login)
 app.register_blueprint(bp_admin)
+app.register_blueprint(bp_quemSomos)
 
 @app.errorhandler(404)
 def rotaErro404(error):
