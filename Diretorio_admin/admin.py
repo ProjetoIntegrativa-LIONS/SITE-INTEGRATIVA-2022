@@ -9,7 +9,7 @@ bp_admin = Blueprint('admin',__name__, url_prefix="/admin", template_folder= 'te
 @bp_admin.route("/", methods = ['POST' , 'GET'] )
 @validarSessao
 def homeAdmin():
-    return render_template("baseAdminDesktop.html" , falhalogin = 0)
+    return render_template("baseAdminDesktop.html" )
 
 @bp_admin.route("/AdmQuemSomos" )
 @validarSessao
