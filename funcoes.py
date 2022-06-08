@@ -2,7 +2,7 @@ from datetime import datetime
 from hashlib import sha3_256
 import logging
 from enum import Enum
-
+from flask import render_template, session
 from werkzeug.utils import redirect
 
 
@@ -30,6 +30,14 @@ class Funcoes(object):
     @staticmethod
     def cifrarSenha(senha):
         return sha3_256(senha.encode('utf-8')).hexdigest()
+
+    @staticmethod
+    def CarregarRota(caminhoDesktop, caminhoMobile):
+        dispositivo = session['dispositivo']
+        if dispositivo == "desktop":
+            return render_template(caminhoDesktop)
+        else:
+            return render_template(caminhoMobile)
 
     @staticmethod
     def PegarTipoDispositivo(user_agent):        
