@@ -1,11 +1,9 @@
 from flask import Blueprint, render_template , request, session
 
+from funcoes import Funcoes
+
 bp_projetos = Blueprint('projetos',__name__, url_prefix="/projetos", template_folder= 'templates')
 
 @bp_projetos.route("/")
 def projetos():
-    dispositivo = session['dispositivo']
-    if dispositivo == "desktop":
-        return render_template("projetosDesktop.html")
-    else:
-        return render_template("projetosMobile.html")
+    return Funcoes.CarregarRota(caminhoDesktop= "projetosDesktop.html",caminhoMobile="projetosMobile.html")

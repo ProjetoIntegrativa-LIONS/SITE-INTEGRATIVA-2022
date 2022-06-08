@@ -6,4 +6,4 @@ bp_contatos = Blueprint('contatos',__name__, url_prefix="/contatos", template_fo
 
 @bp_contatos.route("/" )
 def contatos():
-    return render_template('contatosDesktop.html')
+    return Funcoes.CarregarRota(caminhoDesktop="contatosDesktop.html",caminhoMobile="contatosMobile.html")
