@@ -1,0 +1,84 @@
+
+body{
+    display: flex;
+}
+header{
+    background: rgb(250, 250, 250);
+    width: 100%;
+    max-width: 250px;
+    font-size: 1.6rem;
+    box-shadow: -5px -3px 13px black;
+    z-index: 2;
+    padding: 20px;
+}
+header div.logo{
+    text-align: center;
+    margin-bottom: 30px;
+}
+header div.logo h1{
+    font-size: 1.8rem;
+}
+header div.logo img{
+    max-width: 80px;
+}
+header nav ul li{
+    margin-bottom: 5px;
+}
+header nav ul li a{
+    padding: 15px;
+    width: 100%;
+    background: rgb(246, 246, 246);
+    display: block;
+    color: var(--cor-preta);
+    padding: 15px 50px 15px 10px;
+}
+header nav ul li a:hover{
+    background: rgb(243, 243, 243);
+    text-decoration: none;
+}
+.select-menu{
+    background: rgb(240, 240, 240);
+}
+main.desktop .container{
+    padding: 20px;
+}
+main.desktop{
+    background: rgb(246, 246, 246);
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 20px;
+}
+main.desktop section.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cor-principal-cinza);
+    font-weight: 600;
+    margin: -20px;
+    background: rgb(250, 250, 250);
+    z-index: 2;
+    box-shadow: 8px -4px 4px 3px black
+}
+main.desktop section.header h1{
+    font-size: 1.8rem;
+}
+main.desktop section.header div label{
+    font-weight: 600;
+}
+main.desktop section.header div span{
+margin: 0 15px;
+}
+main.desktop .body table{
+    width: 100%;
+}
+main.desktop .body table thead:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--cor-principal-cinza);
+}
+main.desktop .body table thead th{
+    /* background: green; */
+    padding: 10px;
+}

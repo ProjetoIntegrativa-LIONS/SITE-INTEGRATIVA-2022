@@ -1,8 +1,12 @@
 {% extends 'indexDesktop.html' %}
 {{ super() }}
+{% block styleDinamico %}
+<link href="{{url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename='assets/css/desktop/admin/home-admin.css')}}" rel="stylesheet">
+{% endblock styleDinamico %}
 
 {% block headerPadrao %}
-<header class="desktop">
+<!-- <header class="desktop">
     <section class="container">
         <div>
             <img src="{{url_for('static', filename='assets/images/logotipo-2-original.png')}}" alt="Logotipo do Lions Clube Internacional">
@@ -19,17 +23,66 @@
             </ul>
         </nav>
     </section>
+</header> -->
+<header class="desktop-admin">
+    <div class="logo mb-30">
+        <img class="mb-15" src="{{url_for('static', filename='assets/images/logo-1-original.jpg')}}"
+            alt="Logo Lions Clube Internacional">
+        <h1>Gerenciador de conteúdo Lions</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a class="select-menu" href="">Início</a></li>
+            <li><a href="">Quem somos</a></li>
+            <li><a href="">Projetos</a></li>
+            <li><a href="">Contatos</a></li>
+        </ul>
+    </nav>
 </header>
 {% endblock headerPadrao %}
 
 {% block conteudo %}
-<section class="second container">
-    <div>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-    </div>
-</section>
-    
+<main class="desktop">
+    <section class="header container">
+        <h1>Nome da tela</h1>
+        <div>
+            <label>Usuário: Nome</label>
+            <span>|</span>
+            <a href="">Sair</a>
+        </div>
+    </section>
+    <hr>
+    <section class="body container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Título</th>
+                <th scope="col">Data</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">#{}</th>
+                <td>Teste 1</td>
+                <td>10/10/2022</td>
+              </tr>
+              <tr>
+                <th scope="row">#2</th>
+                <td>Teste 2</td>
+                <td>11/10/2022</td>
+              </tr>
+              <tr>
+                <th scope="row">#3</th>
+                <td>Teste 3</td>
+                <td>12/10/2022</td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+    <section class="footer container"></section>
+</main>
+
 {% endblock conteudo %}
+{% block footer %}
+{% endblock footer %}
