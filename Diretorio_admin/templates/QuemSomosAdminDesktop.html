@@ -2,23 +2,28 @@
 
 
 {% block listagemDados %}
-<section class="body container">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#ID</th>
-            <th scope="col">Título</th>
-            <th scope="col">Data</th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          <tr>
-            <th scope="row">#2</th>
-            <td>QUEM SOMOS 1</td>
-            <td>10/10/2022</td>
-          </tr>          
-        </tbody>
-      </table>
+<section class="form">
+    <form action="">
+        <div class="form-item">
+            <label for="">Primeiro título</label>
+            <input type="text">
+        </div>
+        <div class="form-item">
+            <label for="">Primeiro texto</label>
+            <textarea ></textarea>
+        </div>
+        <div class="form-item">
+            <label class="label-input" for="arquivo-1">Imagem primeiro texto</label>
+            <input type="file" id="arquivo-1" name="imagem" accept="image/png, image/jpeg">
+            <span class="nomeArquivo">Nome arquivo selecionado</span>
+        </div>
+        <div class="form-item">
+            <label for="">Segundo título</label>
+            <input type="text">
+        </div>
+        <div class="form-action">
+            <a class="btn-editar" href="">Salvar</a>
+        </div>
+    </form>
 </section>
 {% endblock listagemDados %}

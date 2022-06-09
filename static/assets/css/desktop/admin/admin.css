@@ -1,0 +1,189 @@
+
+body{
+    display: flex;
+}
+a:hover{
+text-decoration: underline;
+}
+header{
+    background: rgb(250, 250, 250);
+    width: 100%;
+    max-width: 250px;
+    font-size: 1.6rem;
+    box-shadow: -5px -3px 13px black;
+    z-index: 2;
+    padding: 20px;
+}
+header div.logo{
+    text-align: center;
+    margin-bottom: 30px;
+}
+header div.logo h1{
+    font-size: 1.8rem;
+}
+header div.logo img{
+    max-width: 80px;
+}
+header nav ul li{
+    margin-bottom: 5px;
+}
+header nav ul li a{
+    padding: 15px;
+    width: 100%;
+    background: rgb(246, 246, 246);
+    display: block;
+    color: var(--cor-preta);
+    padding: 15px 50px 15px 10px;
+}
+header nav ul li a:hover{
+    background: rgb(243, 243, 243);
+    text-decoration: none;
+}
+.select-menu a{
+    background: rgb(240, 240, 240);
+}
+main.desktop .container{
+    padding: 20px;
+}
+main.desktop{
+    background: rgb(246, 246, 246);
+    width: 100%;
+    font-size: 1.4rem;
+}
+main.desktop section.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cor-principal-cinza);
+    font-weight: 600;
+    background: rgb(250, 250, 250);
+    z-index: 2;
+    box-shadow: 8px -4px 4px 3px black
+}
+main.desktop section.header h1{
+    font-size: 1.8rem;
+}
+main.desktop section.header div label{
+    font-weight: 600;
+}
+main.desktop section.header div span{
+margin: 0 15px;
+}
+
+/* CONFIGURAÇÃO TABELA */
+main.desktop .body table{
+    width: 100%;
+}
+main.desktop .body table thead{
+    background: var(--cor-cinza-table);
+}
+main.desktop .body table thead tr th{
+    width: 50%;
+    text-align: left;
+}
+main.desktop .body table thead tr th:first-child{
+    width: 10%;
+}
+main.desktop .body table thead tr th:nth-child(3){
+    width: 15%;
+}
+main.desktop .body table thead tr th:last-child{
+    width: 25%;
+}
+main.desktop .body table thead th, main.desktop .body table tbody td{
+    padding: 15px 10px;
+}
+main.desktop .body table tbody tr td:last-child{
+    text-align: center;
+}
+main.desktop .body table tbody tr:nth-child(2n){
+    background: var(--cor-cinza-table);
+}
+.btn-editar, .btn-excluir{
+    padding: 8px 22px;
+    color: var(--cor-branca);
+    border-radius: 5px;
+    margin: 0 5px;
+}
+.btn-editar{
+    background: var(--cor-btn-editar);
+}
+.btn-excluir{
+    background: var(--cor-btn-excluir);
+}
+/* END CONFIGURAÇÃO TABELA */
+
+/* FORMULÁRIO */
+section.form{
+    padding: 20px;
+}
+section.form form{
+    margin: auto;
+    width: 100%;
+    max-width: 480px;
+    padding: 15px;
+    background: var(--cor-branca);
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px -3px black;
+}
+section.form form .form-item{
+    width: 100%;
+    margin-bottom: 16px;
+}
+section.form form .form-item label{
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+section.form form .form-item input{
+    display: block;
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    background-color: var(--cor-branca);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    box-shadow: var(--color-primer-shadow-inset);
+    transition: 80mscubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;
+}
+section.form form .form-item .label-input{
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: fit-content;
+    background-color: var(--cor-principal-cinza);
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+section.form form .form-item textarea{
+    display: block;
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    vertical-align: middle;
+    background-color: var(--cor-branca);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    box-shadow: var(--color-primer-shadow-inset);
+    transition: 80mscubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;
+}
+section.form form .form-item input[type="file"] {
+    display: none;
+}
+section.form form .form-action{
+    margin-top: 3rem;
+    display: flex;
+}
+/* END FORMULÁRIO */

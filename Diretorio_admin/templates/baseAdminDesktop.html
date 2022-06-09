@@ -2,7 +2,7 @@
 {{ super() }}
 {% block styleDinamico %}
 <link href="{{url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
-<link href="{{url_for('static', filename='assets/css/desktop/admin/home-admin.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename='assets/css/desktop/admin/admin.css')}}" rel="stylesheet">
 {% endblock styleDinamico %}
 
 {% block headerPadrao %}
@@ -17,7 +17,6 @@
         <ul>
             
             <li {% if tela == 'inicio': %} class="select-menu" {% endif %}><a class="select-menu" href="{{ url_for('admin.homeAdmin') }}">Inicio</a></li>
-            
             <li {% if tela == 'quemSomos': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos</a></li>
             <li {% if tela == 'projeto': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmProjetos') }}">Projetos</a></li>
             <li {% if tela == 'contato': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmContato') }}">Contatos</a></li>
@@ -43,7 +42,6 @@
                 <a href="{{ url_for('login.logoff') }}">Sair</a>
             </div>
         </section>
-        <hr>
     {% endblock configuracaoTela %}    
 
     {% block listagemDados %}        

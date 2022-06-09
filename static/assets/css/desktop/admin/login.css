@@ -65,7 +65,7 @@ main.desktop input{
     transition-property: color,background-color,box-shadow,border-color;
 }
 main.desktop .button{
-    background-color: hsla(137,55%,36%,1);
+    background-color: var(--cor-btn-editar);
     color: var(--cor-branca);
     cursor: pointer;
 }

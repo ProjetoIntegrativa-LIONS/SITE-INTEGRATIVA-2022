@@ -12,6 +12,9 @@
   --cor-branca: #ffffff;
   --cor-preta: #000000;
   --cor-link-azul : #0969da;
+  --cor-cinza-table : rgb(238, 238, 238);
+  --cor-btn-editar : hsla(137,55%,36%,1);
+  --cor-btn-excluir : #dc3545;
 }
 *{
     margin: 0;
