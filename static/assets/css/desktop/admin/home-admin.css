@@ -2,6 +2,9 @@
 body{
     display: flex;
 }
+a:hover{
+text-decoration: underline;
+}
 header{
     background: rgb(250, 250, 250);
     width: 100%;
@@ -36,7 +39,7 @@ header nav ul li a:hover{
     background: rgb(243, 243, 243);
     text-decoration: none;
 }
-.select-menu{
+.select-menu a{
     background: rgb(240, 240, 240);
 }
 main.desktop .container{

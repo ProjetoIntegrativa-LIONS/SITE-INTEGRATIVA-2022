@@ -15,10 +15,12 @@
     </div>
     <nav>
         <ul>
-            <li><a class="select-menu" href="{{ url_for('admin.homeAdmin') }}">{{tela}}</a></li>
-            <li><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos</a></li>
-            <li><a href="{{ url_for('admin.AdmProjetos') }}">Projetos</a></li>
-            <li><a href="{{ url_for('admin.AdmContato') }}">Contatos</a></li>
+            
+            <li {% if tela == 'inicio': %} class="select-menu" {% endif %}><a class="select-menu" href="{{ url_for('admin.homeAdmin') }}">Inicio</a></li>
+            
+            <li {% if tela == 'quemSomos': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos</a></li>
+            <li {% if tela == 'projeto': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmProjetos') }}">Projetos</a></li>
+            <li {% if tela == 'contato': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmContato') }}">Contatos</a></li>
         </ul>
     </nav>
 </header>
@@ -29,7 +31,12 @@
 <main class="desktop">
     {% block configuracaoTela %}
         <section class="header container">
-            <h1>Nome da tela</h1>
+            <h1>
+                {% if tela == 'inicio'%}Inicio{%endif%}
+                {% if tela == 'quemSomos'%}Quem Somos{%endif%}
+                {% if tela == 'projeto'%}Projetos{%endif%}
+                {% if tela == 'contato'%}Contatos{%endif%}
+            </h1>
             <div>
                 <label>Usuário: Nome</label>
                 <span>|</span>

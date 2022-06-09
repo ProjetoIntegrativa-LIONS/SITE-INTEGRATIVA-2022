@@ -1,6 +1,9 @@
 main.desktop{
 
 }
+a:hover{
+text-decoration: underline;
+}
 main.desktop > section div.login{
     margin: auto;
     font-size: 1.6rem;
