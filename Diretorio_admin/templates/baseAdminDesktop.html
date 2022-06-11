@@ -37,7 +37,7 @@
                 {% if tela == 'contato'%}Contatos{%endif%}
             </h1>
             <div>
-                <label>Usuário: Nome</label>
+                <label>Usuário: {{session['nome']}}</label>
                 <span>|</span>
                 <a href="{{ url_for('login.logoff') }}">Sair</a>
             </div>

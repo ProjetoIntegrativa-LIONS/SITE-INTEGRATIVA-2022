@@ -22,7 +22,7 @@ def logar():
         if(nome == "admin" and senhaCripto==Funcoes.cifrarSenha("admin")):  
             loginEhValido = True;
     if loginEhValido:        
-        session['nome'] = "loginValido"        
+        session['nome'] = nome        
         return redirect(url_for("admin.homeAdmin"))
     else:
         return render_template( "loginDesktop.html" , falhalogin=1)
