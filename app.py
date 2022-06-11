@@ -34,7 +34,6 @@ def before_request():
     session.permanent = True
     user_agent = request.headers.get('User-Agent')    
     session['dispositivo'] = Funcoes.PegarTipoDispositivo(user_agent)    
-    print(session['dispositivo'])   
 
 
 
