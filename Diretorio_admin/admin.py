@@ -28,7 +28,7 @@ discionarioTelas = {
 def homeAdmin():
     controlador = ControlInicio();    
     registro = controlador.SelectId(id_inicio=1);        
-    return render_template("InicioAdminDesktop.html" , registro = registro, tela=discionarioTelas.get('inicio'))
+    return render_template("CadastroInicioAdminDesktop.html" , registro = registro, tela=discionarioTelas.get('inicio'))
 
 @bp_admin.route("/modificarInicio", methods = ['POST'] )
 @validarSessao
@@ -50,7 +50,7 @@ def modificarInicio():
 def AdmQuemSomos():
     controlador = ControlQuemSomos();
     registro = controlador.SelectId(id=0);
-    return render_template("QuemSomosAdminDesktop.html", registro = registro , tela=discionarioTelas.get('quemSomos'))
+    return render_template("CadastroQuemSomosAdminDesktop.html", registro = registro , tela=discionarioTelas.get('quemSomos'))
 
 @bp_admin.route("/modificarQuemSomos", methods = ['POST'] )
 @validarSessao
@@ -72,7 +72,7 @@ def modificarQuemSomos():
 def AdmProjetos():
     controlador = ControlProjeto();
     registro = controlador.SelectAll();
-    return render_template("ProjetosAdminDesktop.html", registro = registro ,tela=discionarioTelas.get('projetos'))
+    return render_template("ViewProjetosAdminDesktop.html", registro = registro ,tela=discionarioTelas.get('projetos'))
 
 @bp_admin.route("/modificarProjeto", methods = ['POST'] )
 @validarSessao
@@ -110,7 +110,7 @@ def deletarEditarProjeto():
 @validarSessao
 def AdmContato():
     
-    return render_template("ContatoAdminDesktop.html", tela=discionarioTelas.get('contato'))
+    return render_template("ViewContatoAdminDesktop.html", tela=discionarioTelas.get('contato'))
 
 #endregion
 
