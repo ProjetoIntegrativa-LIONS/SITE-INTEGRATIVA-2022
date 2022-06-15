@@ -4,6 +4,7 @@ from functools import wraps
 from pydoc import describe
 from turtle import title
 from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
+from bancoDados import Banco
 from funcoes import Funcoes , LogEnum
 from Diretorio_login.login import validarSessao
 from Dominio_project.ControlContatos import Contato, ControlContato
@@ -69,8 +70,38 @@ def modificarQuemSomos():
 @bp_admin.route("/AdmProjetos" )
 @validarSessao
 def AdmProjetos():
-    
-    return render_template("ProjetosAdminDesktop.html", tela=discionarioTelas.get('projetos'))
+    controlador = ControlProjeto();
+    registro = controlador.SelectAll();
+    return render_template("ProjetosAdminDesktop.html", registro = registro ,tela=discionarioTelas.get('projetos'))
+
+@bp_admin.route("/modificarProjeto", methods = ['POST'] )
+@validarSessao
+def modificarProjeto():
+    if request.method == "POST":
+
+        objetoProjeto = Projeto();
+        #SALVAR NO BANCO DE DADOS
+
+    return redirect(url_for('admin.AdmProjetos'));
+
+@bp_admin.route("/deletarEditarProjeto",methods = ['POST'])
+@validarSessao
+def deletarEditarProjeto():
+    tipo = request.form['tipo']
+    idProjeto = request.form['id_projeto']   
+
+    if tipo == "Adicionar Novo":
+        pass;
+
+    controlador = ControlProjeto();
+    controlador.SelectId(id=idProjeto);
+
+    if tipo =="Editar":
+        pass;
+    if tipo =="Excluir":
+        pass;
+
+    return redirect(url_for('admin.AdmProjetos'));
 
 #endregion
 

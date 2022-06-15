@@ -9,40 +9,39 @@
           <th>#ID</th>
           <th>Título</th>
           <th>Data</th>
-          <th>Açõs</th>
+          <th>Ações</th>
+          <th><form action="{{ url_for('admin.deletarEditarProjeto') }}" method="POST" >
+            <input type="hidden" name="id_projeto" value="{{ 0 }}">
+            
+              <input type="submit" class="btn-excluir" name="tipo" value="Adicionar Novo" class="button">
+            
+</form></th>
         </tr>
       </thead>
       
       <tbody>
+        {% for dado in registro %}
         <tr >
-          <td >#1</td>
-          <td>Teste 1</td>
-          <td>10/10/2022</td>
+          <td >{{ dado.id }}</td>
+          <td>{{ dado.nome }}</td>
+          <td>{{dado.data.date()}}</td>
           <td>
-            <a class="btn-editar" href="">Editar</a>
-            <a class="btn-excluir" href="">Excluir</a>
+            
+            <form action="{{ url_for('admin.deletarEditarProjeto') }}" method="POST" name="projeto{{ dado.id }}">
+                            <input type="hidden" name="id_projeto" value="{{ dado.id }}">
+                            <td>
+                              <input type="submit" class="btn-editar" name="tipo" value="Editar" class="button">
+                            </td>
+                            <td>
+                              <input type="submit" class="btn-excluir" name="tipo" value="Excluir" class="button">
+                            </td>
+              </form>
+            
+           
           </td>
         </tr>
-        <tr>
-          <td >#2</td>
-          <td>Teste 2</td>
-          <td>11/10/2022</td>
-          <td>
-            <a class="btn-editar" href="">Editar</a>
-            <a class="btn-excluir" href="">Excluir</a>
-          </td>
-        </tr>
-        </tr>
-        <tr>
-          <td >#3</td>
-          <td>Teste 3</td>
-          <td>12/10/2022</td>
-          <td>
-            <a class="btn-editar" href="">Editar</a>
-            <a class="btn-excluir" href="">Excluir</a>
-          </td>
-        </tr>
-        </tr>
+        {% endfor %}
+        
       </tbody>
     </table>
 </section>
