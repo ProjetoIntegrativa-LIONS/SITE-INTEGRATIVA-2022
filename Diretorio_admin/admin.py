@@ -1,7 +1,16 @@
+from ast import Pass
+from atexit import register
 from functools import wraps
+from pydoc import describe
+from turtle import title
 from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
 from funcoes import Funcoes , LogEnum
 from Diretorio_login.login import validarSessao
+from Dominio_project.ControlContatos import Contato, ControlContato
+from Dominio_project.ControlInicio import  Inicio, ControlInicio
+from Dominio_project.ControlProjeto import Projeto, ControlProjeto
+from Dominio_project.ControlQuemSomos import QuemSomos, ControlQuemSomos
+
 
 bp_admin = Blueprint('admin',__name__, url_prefix="/admin", template_folder= 'templates')
 
@@ -12,31 +21,67 @@ discionarioTelas = {
     'contato' : 'contato'
 }
 
+#region INICIO ADMINISTRADOR
 @bp_admin.route("/", methods = ['POST' , 'GET'] )
 @validarSessao
 def homeAdmin():
-    tela = 1
-    return render_template("InicioAdminDesktop.html" , tela=discionarioTelas.get('inicio'))
+    controlador = ControlInicio();    
+    registro = controlador.SelectId(id_inicio=1);        
+    return render_template("InicioAdminDesktop.html" , registro = registro, tela=discionarioTelas.get('inicio'))
 
+@bp_admin.route("/modificarInicio", methods = ['POST'] )
+@validarSessao
+def modificarInicio():    
+    if request.method == "POST":
+        titulo = request.form['titulo']
+        descricao = request.form['descricao']
+        titulo2 = request.form['titulo2']
+        imagem = request.files['arquivo-1']
+        objetoInicio = Inicio(descricao=descricao,segundoTitulo=titulo2,titulo=titulo,imagem=imagem);
+        #SALVAR NO BANCO DE DADOS aqui
+    return redirect(url_for('admin.homeAdmin'));
+#endregion
+
+#region QUEM SOMOS ADMINISTRADOR
 
 @bp_admin.route("/AdmQuemSomos" )
 @validarSessao
 def AdmQuemSomos():
-    tela = 1
-    return render_template("QuemSomosAdminDesktop.html", tela=discionarioTelas.get('quemSomos'))
+    controlador = ControlQuemSomos();
+    registro = controlador.SelectId(id=0);
+    return render_template("QuemSomosAdminDesktop.html", registro = registro , tela=discionarioTelas.get('quemSomos'))
 
+@bp_admin.route("/modificarQuemSomos", methods = ['POST'] )
+@validarSessao
+def modificarQuemSomos():
+    if request.method == "POST":
+        titulo = request.form['titulo']
+        descricao = request.form['descricao']
+        titulo2 = request.form['titulo2']
+        imagem = request.files['arquivo-1']
+        objetoQuemSomos = QuemSomos(imagem=imagem,descricao=descricao,primeiroTitulo=titulo, segundoTitulo=titulo2);
+        #SALVAR NO BANCO DE DADOS aqui
+    return redirect(url_for('admin.AdmQuemSomos'));
+
+#endregion
+
+#region PROJETOS ADMINISTRADOS
 @bp_admin.route("/AdmProjetos" )
 @validarSessao
 def AdmProjetos():
-    tela = 1
+    
     return render_template("ProjetosAdminDesktop.html", tela=discionarioTelas.get('projetos'))
 
+#endregion
+
+#region CONTATO ADMINISTRADOR
 @bp_admin.route("/AdmContato" )
 @validarSessao
 def AdmContato():
-    tela = 1
+    
     return render_template("ContatoAdminDesktop.html", tela=discionarioTelas.get('contato'))
 
+#endregion
 
 
     
