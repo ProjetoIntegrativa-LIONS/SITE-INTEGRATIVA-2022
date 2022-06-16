@@ -1,11 +1,5 @@
-from ast import Pass
-from atexit import register
-from functools import wraps
-from pydoc import describe
-from turtle import back, title
+from datetime import datetime
 from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
-from bancoDados import Banco
-from funcoes import Funcoes , LogEnum
 from Diretorio_login.login import validarSessao
 from Dominio_project.ControlContatos import Contato, ControlContato
 from Dominio_project.ControlInicio import  Inicio, ControlInicio
@@ -92,9 +86,19 @@ def telaCadastroProjetos(id):
 @validarSessao
 def cadastroEmBancoDeProjeto():
     if request.method == "POST":
-        #PEGAR OS CAMPOS DO FORMULARIO WEB
-        objetoProjeto = Projeto();
-        #SALVAR NO BANCO DE DADOS
+        
+        id = request.form['id_projeto']
+        titulo = request.form['titulo']
+        descricao = request.form['descricao']        
+        imagem = request.files['arquivo-1']
+
+        objetoProjeto = Projeto(data=datetime.now(),titulo=titulo,descricao=descricao,imagem=imagem,id=id);
+
+        banco = ControlProjeto();
+        if id== 0:
+            banco.Insert(objetoProjeto);
+        if id != 0:
+            banco.Update(projeto=objetoProjeto);
 
     return redirect(url_for('admin.AdmProjetos'));
 
@@ -111,11 +115,11 @@ def deletarEditarInserirProjeto():
         return telaCadastroProjetos(id=idProjeto);
 
     if tipo =="Excluir":
-        banco = Banco();
+        banco = ControlProjeto();
         banco.Drop(idProjeto);
+        print("Dropou o projeto")
 
     return redirect(url_for('admin.AdmProjetos'));
-
 #endregion
 
 #region CONTATO ADMINISTRADOR
