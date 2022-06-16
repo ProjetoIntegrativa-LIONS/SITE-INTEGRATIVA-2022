@@ -10,7 +10,7 @@
           <th>Título</th>
           <th>Data</th>
           <th>Ações</th>
-          <th><form action="{{ url_for('admin.deletarEditarProjeto') }}" method="POST" >
+          <th><form action="{{ url_for('admin.deletarEditarInserirProjeto') }}" method="POST" >
             <input type="hidden" name="id_projeto" value="{{ 0 }}">
             
               <input type="submit" class="btn-excluir" name="tipo" value="Adicionar Novo" class="button">
@@ -27,7 +27,7 @@
           <td>{{dado.data.date()}}</td>
           <td>
             
-            <form action="{{ url_for('admin.deletarEditarProjeto') }}" method="POST" name="projeto{{ dado.id }}">
+            <form action="{{ url_for('admin.deletarEditarInserirProjeto') }}" method="POST" name="projeto{{ dado.id }}">
                             <input type="hidden" name="id_projeto" value="{{ dado.id }}">
                             <td>
                               <input type="submit" class="btn-editar" name="tipo" value="Editar" class="button">

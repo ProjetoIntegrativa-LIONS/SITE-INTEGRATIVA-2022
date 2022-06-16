@@ -6,11 +6,12 @@ from bancoDados import Banco
 
 class Projeto():
 
-    def __init__(self, id =0, nome ="", descricao = "", data="") :
+    def __init__(self, id =0, nome ="", descricao = "", data="", imagem="") :
         self.id = id;
         self.nome = nome;
         self.descricao= descricao;
         self.data = data;
+        self.imagem = imagem;
 
     def ToString(self):
         return f"Id: {self.id}, Nome: {self.nome}";
@@ -22,9 +23,7 @@ class ControlProjeto():
         self.banco = Banco();
 
     def SelectAll(self):    
-        listaProjeto = [];
-        dat = datetime.now()
-        
+        listaProjeto = [];        
         #DEVE BUSCAR OS DADOS DO BANCO DADOS
         listaProjeto.append(Projeto(descricao="descricao 1",nome="PROJETO 1",id=1,data= datetime.now()));
         listaProjeto.append(Projeto(descricao="descricao 2",nome="PROJETO 2",id=2,data= datetime.now()));
@@ -32,17 +31,20 @@ class ControlProjeto():
         listaProjeto.append(Projeto(descricao="descricao 4",nome="PROJETO 4",id=4,data= datetime.now()));
 
         return listaProjeto;
-        #return self.banco.ExecutarComando("select * from tb_endereco")
         
     def SelectId(self, id):
-        return Projeto(descricao="descricao 1",nome="TESTE 1",id=1)
+        #SELECIONAR UM REGISTRO DO BANCO
+        return Projeto(descricao="descricao 1",nome="TESTE 1",id=1,data=datetime.now(),imagem="")
 
 
-    def Drop(self):
+    def Drop(self, id):
+        #DELETAR REGISTRO DO BANCO
         pass
 
-    def Update(self):
+    def Update(self, projeto):
+        #ATUALIZAR REGISTRO DO BANCO
         pass
 
-    def Insert(self):
-        return self.banco.ExecutarComando("insert into tb_endereco (cidade, estado, rua, numero) values (?, ?, ?, ?)", ["lages","SC","Miranda","SN"])
+    def Insert(self, projeto):
+        #INSERIR UM NOVO REGISTRO NO BANCO
+        pass;

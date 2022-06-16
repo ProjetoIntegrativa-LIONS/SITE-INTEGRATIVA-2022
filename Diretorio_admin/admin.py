@@ -2,7 +2,7 @@ from ast import Pass
 from atexit import register
 from functools import wraps
 from pydoc import describe
-from turtle import title
+from turtle import back, title
 from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
 from bancoDados import Banco
 from funcoes import Funcoes , LogEnum
@@ -74,32 +74,45 @@ def AdmProjetos():
     registro = controlador.SelectAll();
     return render_template("ViewProjetosAdminDesktop.html", registro = registro ,tela=discionarioTelas.get('projetos'))
 
-@bp_admin.route("/modificarProjeto", methods = ['POST'] )
+@bp_admin.route("/telaCadastroProjetos")
 @validarSessao
-def modificarProjeto():
-    if request.method == "POST":
+def telaCadastroProjetos(id):
+    print(id);
+    controlador = ControlProjeto();
+    if id == 0:
+        projeto = Projeto(nome="",descricao="",data="",id=0, imagem="");
+    else:
+        projeto = controlador.SelectId(id);
 
+    print(projeto.descricao)
+    print(projeto.nome)
+    return render_template("CadastroProjetosAdminDesktop.html", dados = projeto ,tela=discionarioTelas.get('projetos'))
+
+@bp_admin.route("/cadastroEmBancoDeProjeto", methods = ['POST'] )
+@validarSessao
+def cadastroEmBancoDeProjeto():
+    if request.method == "POST":
+        #PEGAR OS CAMPOS DO FORMULARIO WEB
         objetoProjeto = Projeto();
         #SALVAR NO BANCO DE DADOS
 
     return redirect(url_for('admin.AdmProjetos'));
 
-@bp_admin.route("/deletarEditarProjeto",methods = ['POST'])
+@bp_admin.route("/deletarEditarInserirProjeto",methods = ['POST'])
 @validarSessao
-def deletarEditarProjeto():
+def deletarEditarInserirProjeto():
     tipo = request.form['tipo']
     idProjeto = request.form['id_projeto']   
 
     if tipo == "Adicionar Novo":
-        pass;
-
-    controlador = ControlProjeto();
-    controlador.SelectId(id=idProjeto);
+        return telaCadastroProjetos(id=0);        
 
     if tipo =="Editar":
-        pass;
+        return telaCadastroProjetos(id=idProjeto);
+
     if tipo =="Excluir":
-        pass;
+        banco = Banco();
+        banco.Drop(idProjeto);
 
     return redirect(url_for('admin.AdmProjetos'));
 
