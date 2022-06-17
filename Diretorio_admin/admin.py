@@ -21,7 +21,7 @@ discionarioTelas = {
 @validarSessao
 def homeAdmin():
     controlador = ControlInicio();    
-    registro = controlador.SelectId(id_inicio=1);        
+    registro = controlador.SelectInicio();        
     return render_template("CadastroInicioAdminDesktop.html" , registro = registro, tela=discionarioTelas.get('inicio'))
 
 @bp_admin.route("/modificarInicio", methods = ['POST'] )

@@ -17,7 +17,7 @@ class ControlInicio():
     def __init__(self):
         self.banco = Banco();
     
-    def SelectId(self, id_inicio):
+    def SelectInicio(self):
         #dados = self.banco.ExecutarComando("select * from tb_endereco where id_endereco = ?", [id_endereco] )        
         #return Endereco(id_endereco=dados[0][0], cidade=dados[0][1], estado=dados[0][2],rua=dados[0][3],numero=dados[0][4])
         return Inicio(id=1,titulo="PRIMEIRO titulo",descricao="PRIMEIRa descricao",segundoTitulo="SEGUNDO TITULO");
