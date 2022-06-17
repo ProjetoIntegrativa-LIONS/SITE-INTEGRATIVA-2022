@@ -32,12 +32,12 @@ class Funcoes(object):
         return sha3_256(senha.encode('utf-8')).hexdigest()
 
     @staticmethod
-    def CarregarRota(caminhoDesktop, caminhoMobile):
+    def CarregarRota(caminhoDesktop, caminhoMobile, dados=""):
         dispositivo = session['dispositivo']
         if dispositivo == "desktop":
-            return render_template(caminhoDesktop)
+            return render_template(caminhoDesktop, dados=dados)
         else:
-            return render_template(caminhoMobile)
+            return render_template(caminhoMobile, dados=dados)
 
     @staticmethod
     def PegarTipoDispositivo(user_agent):        
