@@ -1,5 +1,6 @@
 import imp
 from bancoDados import Banco
+from funcoes import Funcoes
 
 class Usuario():
 
@@ -19,6 +20,14 @@ class ControlUsuario():
     def SelectAll(self):    
         return self.banco.ExecutarComando("select * from tb_usuario")
         
+    def VerificarSenha(self, nome="", senha=""):
+        #VERIFICAR SE A SENHA BATE OU NAO
+        senhaCorreta= "admin"
+        senhaCorreta = Funcoes.cifrarSenha(senhaCorreta);
+        if senhaCorreta == senha and nome == "admin":
+            return True;
+        return False;
+
     def SelectEmail(self , email):
         dados = self.banco.ExecutarComando("select * from tb_usuario where email = ?" , [email])
         return Usuario(id_usuario=dados[0][0],nome=dados[0][1],cpf=dados[0][2],telefone=dados[0][3],email=dados[0][4],senha=dados[0][5],data_nascimento=dados[0][6],tipo_sangue=dados[0][7],alergia=dados[0][8],endereco_id=dados[0][9])

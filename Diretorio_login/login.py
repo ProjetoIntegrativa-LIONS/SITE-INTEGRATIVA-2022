@@ -17,13 +17,13 @@ def logoff():
 
 @bp_login.route("/logar", methods = ['POST'] )
 def logar():
-    loginEhValido = False;
+
+    controlador = ControlUsuario();
     if request.method == "POST":
         nome = request.form['nome']
         senhaCripto = Funcoes.cifrarSenha(request.form['senha'])
-        if(nome == "admin" and senhaCripto==Funcoes.cifrarSenha("admin")):  
-            loginEhValido = True;
-    if loginEhValido:        
+        resultadoValidacao = controlador.VerificarSenha(nome=nome,senha=senhaCripto);        
+    if resultadoValidacao:        
         session['nome'] = nome        
         return redirect(url_for("admin.homeAdmin"))
     else:
