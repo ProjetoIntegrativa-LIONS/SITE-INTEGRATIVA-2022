@@ -1,6 +1,8 @@
 from functools import wraps
 from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
 from funcoes import Funcoes , LogEnum
+from Dominio_project.ControlUsuario import Usuario, ControlUsuario
+
 
 bp_login = Blueprint('login',__name__, url_prefix="/login", template_folder= 'templates')
 
@@ -13,7 +15,7 @@ def logoff():
     session.pop('nome' , None)
     return redirect(url_for('home.rotaHome'))
 
-@bp_login.route("/logar", methods = ['POST' , 'GET'] )
+@bp_login.route("/logar", methods = ['POST'] )
 def logar():
     loginEhValido = False;
     if request.method == "POST":
