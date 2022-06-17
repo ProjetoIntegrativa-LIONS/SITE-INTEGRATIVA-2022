@@ -187,3 +187,94 @@ section.form form .form-action{
     display: flex;
 }
 /* END FORMULÁRIO */
+
+
+/* Media queries */
+@media (max-width: 767px) {
+    nav, .logo{
+        display: none;
+    }
+    .one, .two, .three{
+        background-color: var(--cor-principal-azul);
+        height: 5px;
+        width: 100%;
+        margin: 6px auto;
+        transition-duration: 0.3s;
+    }
+    .menu-toggle{
+        width: 40px;
+        height: 40px;
+        z-index: 4;
+        position: absolute;
+    }
+    header{
+        position: absolute;
+        max-width: none;
+        width: auto;
+        padding: 12px;
+        z-index: 4;
+        box-shadow: none;
+    }
+    main.desktop .header h1{
+        padding-left: 55px;
+    }
+
+    /* fullscrenn */
+    header.on{
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: var(--cor-principal-azul);
+        z-index: 3;
+        max-width: 100%;
+        transition-duration: 0.3s;
+    }
+    header.on h1{
+        color: var(--cor-branca);
+        margin-top: 15px;
+    }
+
+
+    header.on nav, header.on .logo{
+        display: block;
+    }
+    header.on .one, header.on .two, header.on .three{
+        background-color: var(--cor-branca);
+    }
+    header.on .one{
+        transform:  rotate(45deg) translate(7px, 7px);
+    }
+    header.on .two{
+        opacity: 0;
+    }
+    header.on .three{
+        transform:  rotate(-45deg) translate(8px, -9px);
+    }
+
+
+    header.on nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header.on nav ul{
+        width: 100%;
+        max-width: 300px;
+    }
+    header.on nav ul li a{
+        background: transparent;
+        color: var(--cor-branca);
+        text-align: center;
+        line-height: 30px;
+        padding: 12px 0;
+        border-radius: 6px;
+        font-size: 1.8rem;
+        transition-duration: 0.5s;
+    }
+    header.on .select-menu a{
+        background: rgb(255, 255, 255, 0.1);
+    }
+}

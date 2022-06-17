@@ -8,6 +8,11 @@
 {% block headerPadrao %}
 
 <header class="desktop-admin">
+    <div class="menu-toggle">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
     <div class="logo mb-30">
         <img class="mb-15" src="{{url_for('static', filename='assets/images/logo-1-original.jpg')}}"
             alt="Logo Lions Clube Internacional">
@@ -59,4 +64,5 @@
 {% endblock conteudo %}
 
 {% block footer %}
+    <script src="{{url_for('static', filename='assets/js/admin/menu.js')}}" rel="stylesheet"></script>
 {% endblock footer %}
