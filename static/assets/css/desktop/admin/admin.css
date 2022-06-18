@@ -71,6 +71,10 @@ margin: 0 15px;
 }
 
 /* CONFIGURAÇÃO TABELA */
+main.desktop .adicionar-projeto{
+    text-align: right;
+    margin-bottom: 10px;
+}
 main.desktop .body table{
     width: 100%;
 }
@@ -104,12 +108,17 @@ main.desktop .body table tbody tr:nth-child(2n){
     color: var(--cor-branca);
     border-radius: 5px;
     margin: 0 5px;
+    border-color: rgba(0, 0, 0, 0.1);
 }
 .btn-editar{
     background: var(--cor-btn-editar);
 }
 .btn-excluir{
     background: var(--cor-btn-excluir);
+}
+.btn-editar:hover, .btn-excluir:hover{
+    opacity: 0.9;
+    cursor: pointer;
 }
 /* END CONFIGURAÇÃO TABELA */
 
@@ -277,4 +286,11 @@ section.form form .form-action{
     header.on .select-menu a{
         background: rgb(255, 255, 255, 0.1);
     }
+    /* fullscreen */
+
+    /* table */
+    .btn-editar, .btn-excluir{
+        margin: 6px 0;
+    }
+    /* table */
 }

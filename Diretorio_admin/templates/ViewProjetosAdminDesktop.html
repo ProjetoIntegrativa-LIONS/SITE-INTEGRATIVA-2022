@@ -3,46 +3,45 @@
 
 {% block listagemDados %}
 <section class="body container">
+  <div class="adicionar-projeto">
+    <form action="{{ url_for('admin.deletarEditarInserirProjeto') }}" method="POST">
+      <input type="hidden" name="id_projeto" value="{{ 0 }}">
+      <input type="submit" class="btn-editar" name="tipo" value="Adicionar Novo" class="button">
+    </form>
+  </div>
   <table class="table">
-      <thead>
-        <tr>
-          <th>#ID</th>
-          <th>Título</th>
-          <th>Data</th>
-          <th>Ações</th>
-          <th><form action="{{ url_for('admin.deletarEditarInserirProjeto') }}" method="POST" >
+    <thead>
+      <tr>
+        <th>#ID</th>
+        <th>Título</th>
+        <th>Data</th>
+        <th>Ações</th>
+        <!-- <th>
+          <form action="{{ url_for('admin.deletarEditarInserirProjeto') }}" method="POST">
             <input type="hidden" name="id_projeto" value="{{ 0 }}">
-            
-              <input type="submit" class="btn-excluir" name="tipo" value="Adicionar Novo" class="button">
-            
-</form></th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        {% for dado in registro %}
-        <tr >
-          <td >{{ dado.id }}</td>
-          <td>{{ dado.nome }}</td>
-          <td>{{dado.data.date()}}</td>
-          <td>
-            
-            <form action="{{ url_for('admin.deletarEditarInserirProjeto') }}" method="POST" name="projeto{{ dado.id }}">
-                            <input type="hidden" name="id_projeto" value="{{ dado.id }}">
-                            <td>
-                              <input type="submit" class="btn-editar" name="tipo" value="Editar" class="button">
-                            </td>
-                            <td>
-                              <input type="submit" class="btn-excluir" name="tipo" value="Excluir" class="button">
-                            </td>
-              </form>
-            
-           
-          </td>
-        </tr>
-        {% endfor %}
-        
-      </tbody>
-    </table>
+            <input type="submit" class="btn-excluir" name="tipo" value="Adicionar Novo" class="button">
+          </form>
+        </th> -->
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for dado in registro %}
+      <tr>
+        <td>{{ dado.id }}</td>
+        <td>{{ dado.nome }}</td>
+        <td>{{dado.data.date()}}</td>
+        <td>
+          <form action="{{ url_for('admin.deletarEditarInserirProjeto') }}" method="POST" name="projeto{{ dado.id }}">
+            <input type="hidden" name="id_projeto" value="{{ dado.id }}">
+            <input type="submit" class="btn-editar" name="tipo" value="Editar" class="button">
+            <input type="submit" class="btn-excluir" name="tipo" value="Excluir" class="button">
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
 </section>
 {% endblock listagemDados %}
