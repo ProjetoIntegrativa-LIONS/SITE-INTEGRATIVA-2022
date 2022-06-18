@@ -32,17 +32,17 @@
                             <form action="{{ url_for('login.logar') }}" method="POST">
                                 <div class="item-form">
                                     <label class="mb-8">Usuário login</label>
-                                    <input type="text" name="nome" id="nome" class="mb-5" placeholder="">
+                                    <input tabindex="1" type="text" name="nome" id="nome" class="mb-5" placeholder="">
                                 </div>
                                 <div class="item-form">
                                     <div class="label-link mb-8">
                                         <label>Senha login</label>
                                         <a href="" target="_blank" rel="noopener noreferrer">Esqueceu sua senha?</a>
                                     </div>
-                                    <input type="password" name="senha" id="senha" class="mb-5" placeholder="">
+                                    <input tabindex="2" type="password" name="senha" id="senha" class="mb-5" placeholder="">
                                 </div>
                                 <div class="item-form">
-                                    <input type="submit" value="Entrar" class="button">
+                                    <input tabindex="3" type="submit" value="Entrar" class="button">
                                 </div>
                             </form>
                         </div>
@@ -58,7 +58,7 @@
                             {% endif %}
                         </div>
                         <div class="back">
-                            <a href="{{ url_for('home.rotaHome') }}" rel="noopener noreferrer"> <span>&larr;</span> Voltar para início</a>
+                            <a tabindex="4" href="{{ url_for('home.rotaHome') }}" rel="noopener noreferrer"> <span>&larr;</span> Voltar para início</a>
                         </div>
                     </div>
                 </div>

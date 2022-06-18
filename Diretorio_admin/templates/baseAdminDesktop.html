@@ -25,6 +25,7 @@
             <li {% if tela == 'quemSomos': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos</a></li>
             <li {% if tela == 'projeto': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmProjetos') }}">Projetos</a></li>
             <li {% if tela == 'contato': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmContato') }}">Contatos</a></li>
+            <li><a href="{{ url_for('home.rotaHome') }}">Voltar ao site</a></li>
         </ul>
     </nav>
 </header>

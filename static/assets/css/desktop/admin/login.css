@@ -1,7 +1,8 @@
 main.desktop{
 
 }
-a:hover{
+a:hover,
+a:focus{
 text-decoration: underline;
 }
 main.desktop > section div.login{
@@ -68,6 +69,10 @@ main.desktop .button{
     background-color: var(--cor-btn-editar);
     color: var(--cor-branca);
     cursor: pointer;
+}
+main.desktop .button:hover,
+main.desktop .button:focus{
+    opacity: 0.9;
 }
 main.desktop .footer{
     border: 1px solid hsla(210,18%,87%,1);
