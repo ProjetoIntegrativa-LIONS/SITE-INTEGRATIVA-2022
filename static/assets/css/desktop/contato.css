@@ -1,0 +1,132 @@
+main.desktop{
+    width: 100%;
+    font-size: 1.2rem;
+    height: auto;
+    line-height: 3rem;
+    padding: 50px 0;
+    min-height: 80vh;
+    display: block;
+}
+main.desktop h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+main.desktop h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+main.desktop section{
+    display: flex;
+    justify-content: space-around;
+}
+main.desktop section .description-page{
+    text-align: center;
+    margin: 10px 0;
+}
+main.desktop section .description-page div p{
+    text-align: left;
+    font-size: 1.4rem;
+}
+main.desktop section.first{
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 0;
+    
+}
+
+/* FORMULÁRIO */
+section div.form{
+    padding: 20px;
+}
+section div.form form{
+    margin: auto;
+    width: 100%;
+    max-width: 50px;
+    padding: 15px;
+    background: var(--cor-branca);
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px -3px black;
+    min-width: 400px;
+}
+section div.form form .form-item{
+    width: 100%;
+    margin-bottom: 16px;
+}
+section div.form form .form-item label{
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+section div.form form .form-item input{
+    display: block;
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    background-color: var(--cor-branca);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    box-shadow: var(--color-primer-shadow-inset);
+    transition: 80mscubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;
+}
+section div.form form .form-item .label-input{
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: fit-content;
+    background-color: var(--cor-principal-cinza);
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+section div.form form .form-item input:focus,
+section div.form form .form-item textarea:focus{
+    border-width: 2.5px;
+}
+section div.form form .form-item textarea{
+    display: block;
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    vertical-align: middle;
+    background-color: var(--cor-branca);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    box-shadow: var(--color-primer-shadow-inset);
+    transition: 80mscubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;
+}
+section div.form form .form-item input[type="file"] {
+    display: none;
+}
+section div.form form .form-action{
+    margin-top: 3rem;
+    display: flex;
+}
+
+section div.form form  .btn-enviar{
+    padding: 8px 22px;
+    color: var(--cor-branca);
+    border-radius: 5px;
+    margin: 0 5px;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+section div.form form .btn-enviar{
+    background: var(--cor-btn-editar);
+}
+section div.form form .btn-enviar:hover,
+section div.form form .btn-enviar:focus{
+    opacity: 0.9;
+    cursor: pointer;
+}

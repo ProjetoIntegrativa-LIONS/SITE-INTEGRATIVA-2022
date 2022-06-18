@@ -1,6 +1,53 @@
 {% extends 'indexDesktop.html' %}
+{% block head %}
+     {% block metaDinamico %}
+     <meta name="description" content="Texto breve sobre o Lions clube">
+     <title>Inicio Lions Clube</title>
+     {% endblock metaDinamico %}
+     {% block styleDinamico %}
+        {{ super() }}
+        <link href="{{url_for('static', filename='assets/css/desktop/contato.css')}}" rel="stylesheet">
+     {% endblock styleDinamico %}
+{% endblock head %}
 {{ super() }}
 
 {% block conteudo %}
-    <h1>CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS CONTATOS</h1>
+<main class="desktop container">
+    <h1>Contato</h1>
+    <section>
+        <div class="description-page">
+            <h2>Descrição da página de contato</h2>
+            <div>
+                <p>Localização: teste Nº 0 Teste</p>
+                <p>Contato: (49) 99999-9999 - Joao</p>
+                <p>email: teste@teste.com</p>
+            </div>
+        </div>
+        <div class="form">
+            <form action="">
+                <div class="form-item">
+                    <label for="">Nome</label>
+                    <input tabindex="1" type="text" value= "" name="titulo" id="titulo">
+                </div>
+                <div class="form-item">
+                    <label for="">Email</label>
+                    <input tabindex="2" type="text" value= "" name="titulo" id="titulo">
+                </div>
+                <div class="form-item">
+                    <label for="">Telefone</label>
+                    <input tabindex="3" type="text" value= "" name="titulo" id="titulo">
+                </div>
+                <div class="form-item">
+                    <label for="">Motivo</label>
+                    <input tabindex="4" type="text" value= "" name="titulo" id="titulo">
+                </div>
+                <div class="form-item">
+                    <label for="">Descrição</label>
+                    <textarea tabindex="5" name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="5" ></textarea>
+                </div>
+                <input tabindex="6" type="button" class="btn-enviar" value="Enviar">
+            </form>
+        </div>
+    </section>
+</main>
 {% endblock conteudo %}

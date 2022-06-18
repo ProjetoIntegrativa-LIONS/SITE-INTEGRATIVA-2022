@@ -1,0 +1,49 @@
+/* MAIN */
+main.desktop{
+    width: 100%;
+    font-size: 1.2rem;
+    height: auto;
+    align-items: center;
+    line-height: 3rem;
+    padding: 50px 0;
+    min-height: 80vh;
+}
+main.desktop h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+main.desktop section.first{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 0;
+    
+}
+main.desktop section.first div{
+    padding: 0 20px;
+}
+main.desktop section.first div img{
+    width: 100px;
+}
+main.desktop section.first div a{
+    color: var(--cor-preta)
+}
+main.desktop section.first div a:hover{
+    text-decoration: underline;
+}
+main.desktop section.first div p{
+    font-size: 1.4rem;
+    text-align: justify;
+    white-space: nowrap; 
+    width: 66em; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+hr.desktop{
+    border-color: (--cor-secundaria-cinza-claro);
+    border-bottom-width: 3px;
+    opacity: 0.3;
+    border-style: groove;
+}
