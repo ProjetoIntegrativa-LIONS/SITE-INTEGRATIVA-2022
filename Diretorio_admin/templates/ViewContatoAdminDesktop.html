@@ -7,39 +7,37 @@
       <thead>
         <tr>
           <th>#ID</th>
-          <th>Título</th>
-          <th>Data</th>
+          <th>
+            Nome
+          </th>
+          <th>Telefone</th>
           <th>Açõs</th>
         </tr>
       </thead>
       
       <tbody>
-        <tr >
-          <td >#1</td>
-          <td>Teste 1</td>
-          <td>10/10/2022</td>
-          <td>
-            <a class="btn-editar" href="">Visualizar</a>
-          </td>
-        </tr>
-        <tr>
-          <td >#2</td>
-          <td>Teste 2</td>
-          <td>11/10/2022</td>
-          <td>
-            <a class="btn-editar" href="">Visualizar</a>
-          </td>
-        </tr>
-        </tr>
-        <tr>
-          <td >#3</td>
-          <td>Teste 3</td>
-          <td>12/10/2022</td>
-          <td>
-            <a class="btn-editar" href="">Visualizar</a>
-          </td>
-        </tr>
-        </tr>
+        {% for dado in dados %}
+      <tr>
+        
+        <td >{{ dado.id }}</td>
+            <td>{{ dado.nome }}</td>
+            <td>{{ dado.telefone }}</td>
+           
+
+        <td>
+          <form action="{{ url_for('admin.visualizarContato') }}" method="POST" name="projeto{{ dado.id }}">
+            <input type="hidden" name="id" value="{{ dado.id }}">
+            <input type="submit" class="btn-editar" name="tipo" value="Visualizar" class="button">
+            
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+
+
+  
+
+                   
       </tbody>
     </table>
 </section>

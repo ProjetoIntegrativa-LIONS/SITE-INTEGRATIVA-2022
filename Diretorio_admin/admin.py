@@ -126,9 +126,21 @@ def deletarEditarInserirProjeto():
 @bp_admin.route("/AdmContato" )
 @validarSessao
 def AdmContato():
-    
-    return render_template("ViewContatoAdminDesktop.html", tela=discionarioTelas.get('contato'))
+    controlador = ControlContato();
+    dados = controlador.SelectAll();
+    return render_template("ViewContatoAdminDesktop.html",dados=dados, tela=discionarioTelas.get('contato'))
 
+@bp_admin.route("/visualizarContato", methods = ['POST'])
+@validarSessao
+def visualizarContato():
+    if request.method == "POST":
+        id = request.form['id']
+        controlador = ControlContato();
+        contato = controlador.SelectId(contatoId=id);
+        if(contato == NULL):
+            return redirect(url_for('admin.AdmContato'))
+        else:
+            return render_template("ViewContatoUnicoAdminDesktop.html",dados=contato, tela=discionarioTelas.get('contato'))
 #endregion
 
 
