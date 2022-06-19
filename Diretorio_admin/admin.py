@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from datetime import datetime
 from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
 from Diretorio_login.login import validarSessao
