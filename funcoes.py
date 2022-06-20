@@ -5,6 +5,8 @@ from enum import Enum
 from flask import render_template, session
 from werkzeug.utils import redirect
 
+from Dominio_project.ControlLogHistorico import ControlLogHistorico, LogHistorico
+
 
 class LogEnum(Enum):
     INFO='INFO'
@@ -43,33 +45,14 @@ class Funcoes(object):
     def PegarTipoDispositivo(user_agent):        
         user_agent = user_agent.lower()
         if "iphone" in user_agent:
-            #print("iphone");
             return "mobile";            
         elif "android" in user_agent:            
-            #print("android")
             return "mobile";            
         else:
-            #print("desktop");
             return "desktop"
             
-
     @staticmethod
-    def criaLog(tipo, status, rota, usuario, mensagem):
-        #definindo as configurações basicas e o caminho do arquivo.
-        
-        logging.basicConfig(filename='arquivoLog.log',format=f'%(levelname)s|%(name)s|%(asctime)s|%(message)s',
-                            datefmt='%d/%m/%Y %H:%M:%S', encoding='utf-8', level= logging.INFO)   
-        #Criando a mensagem com os dados
-        _msg = f'{status}|{rota}|{usuario}|{mensagem}'
-        
-        #Verificando o tipo para atribuição
-        if tipo == LogEnum.INFO:
-            logging.info(_msg)
-        elif tipo == LogEnum.WARNING:
-            logging.warning(_msg)
-        elif tipo == LogEnum.ERROR:
-            logging.error(_msg)
-        elif tipo == LogEnum.DEBUG:
-            logging.debug(_msg)
-        elif tipo == LogEnum.CRITICAL:
-            logging.critical(_msg)
+    def criaLog(status, rota, usuario, mensagem):
+        log = LogHistorico(mensagem=mensagem,rota=rota,usuario=usuario,status=status);
+        controlador = ControlLogHistorico();
+        controlador.InserirLog(log);
