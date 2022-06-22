@@ -21,7 +21,7 @@ class ControlInicio():
     def SelectInicio(self):
         #dados = self.banco.ExecutarComando("select * from tb_endereco where id_endereco = ?", [id_endereco] )        
         #return Endereco(id_endereco=dados[0][0], cidade=dados[0][1], estado=dados[0][2],rua=dados[0][3],numero=dados[0][4])
-        return Inicio(id=1,imagem1="",descricaoImagem1="",texto1="",texto2="",texto3="",descricaoImagem3="",imagem3="",titulo2="");
+        return Inicio(id=1,imagem1="",descricaoImagem1="DESCRICAO IMAGEM 1",texto1="TEXTO 1",texto2="TEXTO 2",texto3="TEXTO 3",descricaoImagem3="DESCRICAO IMAGEM 3",imagem3="",titulo2="TITULO 2");
 
     def Drop(self, id_endereco):
         return self.banco.ExecutarComando("delete from tb_endereco where id_endereco = ?" , [id_endereco])

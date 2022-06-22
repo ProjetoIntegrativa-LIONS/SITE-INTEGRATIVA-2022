@@ -6,7 +6,7 @@ from Dominio_project.ControlContatos import Contato, ControlContato
 from Dominio_project.ControlInicio import  Inicio, ControlInicio
 from Dominio_project.ControlProjeto import Projeto, ControlProjeto
 from Dominio_project.ControlQuemSomos import QuemSomos, ControlQuemSomos
-
+import os
 
 bp_admin = Blueprint('admin',__name__, url_prefix="/admin", template_folder= 'templates')
 
@@ -33,7 +33,18 @@ def modificarInicio():
         descricao = request.form['descricao']
         titulo2 = request.form['titulo2']
         imagem = request.files['arquivo-1']
-        objetoInicio = Inicio(descricao=descricao,segundoTitulo=titulo2,titulo=titulo,imagem=imagem);
+
+        #DIRETORIO = url_for('static', filename='assets/imagens/downloads')
+        DIRETORIO = "static\\assets\\images\\downloads"
+        print(DIRETORIO)
+        print(imagem.content_type)
+        
+        nome_do_arquivo = "NOME"
+        imagem.save(os.path.join(DIRETORIO, nome_do_arquivo))
+        #objetoInicio = Inicio(descricao=descricao,segundoTitulo=titulo2,titulo=titulo,imagem=imagem);
+
+
+
         #SALVAR NO BANCO DE DADOS aqui
     return redirect(url_for('admin.homeAdmin'));
 #endregion
@@ -51,11 +62,15 @@ def AdmQuemSomos():
 @validarSessao
 def modificarQuemSomos():
     if request.method == "POST":
-        titulo = request.form['titulo']
-        descricao = request.form['descricao']
-        titulo2 = request.form['titulo2']
-        imagem = request.files['arquivo-1']
-        objetoQuemSomos = QuemSomos(imagem=imagem,descricao=descricao,primeiroTitulo=titulo, segundoTitulo=titulo2);
+        titulo1 = request.form['titulo1']
+        texto1 = request.form['texto1']
+        texto2 = request.form['texto2']
+        imagem2 = request.files['arquivo-2']
+        descicaoImagem = imagem2.content_length;
+        print(descicaoImagem);
+
+        objetoQuemSomos = QuemSomos(descricaoImagem2="",imagem2=imagem2,texto1=texto1,texto2=texto2,titulo1=titulo1,id=0);
+
         #SALVAR NO BANCO DE DADOS aqui
     return redirect(url_for('admin.AdmQuemSomos'));
 

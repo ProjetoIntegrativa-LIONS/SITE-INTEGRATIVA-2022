@@ -4,28 +4,35 @@
 {% block listagemDados %}
 <section class="form">
         <form action="{{ url_for('admin.modificarInicio')  }}" method="POST" enctype="multipart/form-data">
-            <div class="form-item">
-                <label for="">Primeiro título</label>
-                <input type="text" value= "{{ registro.titulo_inicio }}" name="titulo" id="titulo">
-            </div>
+
             <div class="form-item">
                 <label for="">Primeiro texto</label>
-                <textarea name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="2" placeholder="Descrição">{{ registro.descricao_inicio }}</textarea>
-                
+                <textarea name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="2" placeholder="Descrição">{{ registro.texto1 }}</textarea>                
             </div>
             <div class="form-item">
                 <label class="label-input" for="arquivo-1">Imagem primeiro texto</label>
                 <input type="file" id="arquivo-1" name="arquivo-1" accept="image/png, image/jpeg">
                 <span class="nomeArquivo">Nome arquivo selecionado</span>
             </div>
+
+            <br><hr><br>
+
             <div class="form-item">
                 <label for="">Segundo título</label>
-                <input type="text" value="{{ registro.segundo_titulo }}" name="titulo2" id="titulo2">
+                <input type="text" value="{{ registro.titulo2 }}" name="titulo2" id="titulo2">
             </div>
-           
+            <div class="form-item">
+                <label for="">Segundo Texto</label>
+                <textarea name="descricao2" id="descricao2" autocomplete="off" maxlength="200" cols="30" rows="2" placeholder="Segunda Descrição">{{ registro.texto2 }}</textarea>                
+            </div>            
+            <div class="form-item">
+                <label class="label-input" for="arquivo-1">Imagem segundo texto</label>
+                <input type="file" id="arquivo-2" name="arquivo-2" accept="image/png, image/jpeg">
+                <span class="nomeArquivo">Nome arquivo selecionado</span>
+            </div>
 
             <div class="form-action">
-                <input type="submit" class="btn-editar" value="Entrar" class="button">
+                <input type="submit" class="btn-editar" value="Salvar" class="button">
             </div>
         </form>
 </section>

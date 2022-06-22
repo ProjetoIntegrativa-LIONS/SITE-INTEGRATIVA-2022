@@ -21,7 +21,7 @@ class ControlQuemSomos():
     def SelectId(self, id):
         #dados = self.banco.ExecutarComando("select * from tb_endereco where id_endereco = ?", [id_endereco] )        
         #return Endereco(id_endereco=dados[0][0], cidade=dados[0][1], estado=dados[0][2],rua=dados[0][3],numero=dados[0][4])
-        return QuemSomos(descricao="Descricao",segundoTitulo="Segundo titulo",primeiroTitulo="Primeiro titulo",id=0);
+        return QuemSomos(id=id,titulo1="TITULO 1",descricaoImagem2="DESCRICAO IMAGEM 2",imagem2="",texto1="TEXTO 1",texto2="TEXTO 2");
 
     def Drop(self):
         pass
