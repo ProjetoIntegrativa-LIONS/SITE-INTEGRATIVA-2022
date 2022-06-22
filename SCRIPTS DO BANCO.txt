@@ -1,0 +1,50 @@
+CREATE DATABASE `databaselions` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+CREATE TABLE `databaselions`.`tb_usuario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(500) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `databaselions`.`tb_contato` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `motivo` VARCHAR(200) NULL,
+  `descricao` VARCHAR(400) NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `databaselions`.`tb_projeto` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(45) NULL,
+  `descricao` VARCHAR(45) NULL,
+  `data` DATETIME NULL,
+  PRIMARY KEY (`id`));
+
+
+tb_quem_somosCREATE TABLE `databaselions`.`tb_quem_somos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo_1` VARCHAR(60) NOT NULL,
+  `texto1` VARCHAR(1000) NOT NULL,
+  `texto_2` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `databaselions`.`tb_inicio` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `texto1` VARCHAR(45) NOT NULL,
+  `titulo_2` VARCHAR(45) NOT NULL,
+  `texto_2` VARCHAR(45) NOT NULL,
+  `texto_3` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `databaselions`.`tb_historico_log` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `data_insercao` DATETIME NOT NULL,
+  `estatus` VARCHAR(70) NOT NULL,
+  `rota` VARCHAR(70) NOT NULL,
+  `usuario` VARCHAR(70) NOT NULL,
+  `mensagem` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`));
