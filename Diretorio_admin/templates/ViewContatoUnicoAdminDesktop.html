@@ -2,44 +2,37 @@
 
 {% block styleDinamico %}
     {{ super() }}
-    <link href="{{url_for('static', filename='assets/css/desktop/contato.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='assets/css/desktop/admin/admin.css')}}" rel="stylesheet">
 {% endblock styleDinamico %}
 
 {% block listagemDados %}
 
-<section class="body container">
-    
-    <main class="desktop container"> 
-        <section>            
-            <div class="form">
-                <form action="">
-                    <div class="form-item">
-                        <label for="">Nome</label>
-                        <input tabindex="1" type="text" value= "{{ dados.nome }}" name="titulo" id="titulo">
-                    </div>
-                    <div class="form-item">
-                        <label for="">Email</label>
-                        <input tabindex="2" type="text" value= "{{ dados.email }}" name="titulo" id="titulo">
-                    </div>
-                    <div class="form-item">
-                        <label for="">Telefone</label>
-                        <input tabindex="3" type="text" value= "{{ dados.telefone }}" name="titulo" id="titulo">
-                    </div>
-                    <div class="form-item">
-                        <label for="">Motivo</label>
-                        <input tabindex="4" type="text" value= "{{ dados.motivo }}" name="titulo" id="titulo">
-                    </div>
-                    <div class="form-item">
-                        <label for="">Descrição</label>
-                        <textarea tabindex="5" name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="5" >{{ dados.descricao }}</textarea>
-                    </div>
-
-                </form>
-            </div>
-        </section>
-    </main>
-    
-
+<section class="form">            
+    <form action="">
+        <div class="form-item">
+            <label for="">Nome</label>
+            <input readonly tabindex="1" type="text" value= "{{ dados.nome }}" name="titulo" id="titulo">
+        </div>
+        <div class="form-item">
+            <label for="">Email</label>
+            <input readonly tabindex="2" type="text" value= "{{ dados.email }}" name="titulo" id="titulo">
+        </div>
+        <div class="form-item">
+            <label for="">Telefone</label>
+            <input readonly tabindex="3" type="text" value= "{{ dados.telefone }}" name="titulo" id="titulo">
+        </div>
+        <div class="form-item">
+            <label for="">Motivo</label>
+            <input readonly tabindex="4" type="text" value= "{{ dados.motivo }}" name="titulo" id="titulo">
+        </div>
+        <div class="form-item">
+            <label for="">Descrição</label>
+            <textarea readonly tabindex="5" name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="5" >{{ dados.descricao }}</textarea>
+        </div>
+        <div class="form-action">
+            <a class="btn-editar" href="{{ url_for('admin.AdmContato') }}">Voltar</a>
+        </div>
+    </form>
 </section>
 
 {% endblock listagemDados %}
