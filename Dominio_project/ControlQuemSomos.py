@@ -2,15 +2,13 @@ from bancoDados import Banco
 
 class QuemSomos():
 
-    def __init__(self, id=0, descricao ="", primeiroTitulo ="",segundoTitulo="",imagem =""):
+    def __init__(self, id=0, titulo1="",texto1="",imagem2="",descricaoImagem2="",texto2="" ):
         self.id_quemSomos= id;
-        self.descricao = descricao;
-        self.primeiroTitulo = primeiroTitulo;
-        self.segundoTitulo = segundoTitulo;
-        self.imagem = imagem;
-
-    def ToString(self):
-        return f"Id: {self.id_quemSomos}, descricao: {self.descricao_quemSomos}";
+        self.titulo1= titulo1;
+        self.texto1=texto1;
+        self.imagem2=imagem2
+        self.descricaoImagem2 = descricaoImagem2;
+        self.texto2=texto2;
 
 class ControlQuemSomos():
 

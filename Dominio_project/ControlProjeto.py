@@ -6,16 +6,13 @@ from bancoDados import Banco
 
 class Projeto():
 
-    def __init__(self, id =0, nome ="", descricao = "", data="", imagem="") :
+    def __init__(self, id =0, nome ="", descricao = "", data="", imagem="", descricaoImagem="") :
         self.id = id;
         self.nome = nome;
         self.descricao= descricao;
         self.data = data;
         self.imagem = imagem;
-
-    def ToString(self):
-        return f"Id: {self.id}, Nome: {self.nome}";
-
+        self.descricaoImagem = descricaoImagem;
 
 class ControlProjeto():
  
