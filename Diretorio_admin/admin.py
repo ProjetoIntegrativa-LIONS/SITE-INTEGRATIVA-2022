@@ -158,7 +158,7 @@ def visualizarContato():
     if request.method == "POST":
         id = request.form['id']
         controlador = ControlContato();
-        contato = controlador.SelectId(contatoId=id);
+        contato = controlador.SelectId(id);
         if(contato == NULL):
             return redirect(url_for('admin.AdmContato'))
         else:

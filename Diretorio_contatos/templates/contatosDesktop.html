@@ -24,28 +24,30 @@
             </div>
         </div>
         <div class="form">
-            <form action="">
+            <form action="{{ url_for('contatos.cadastrarContato')  }}" method="POST">
                 <div class="form-item">
                     <label for="">Nome</label>
-                    <input tabindex="1" type="text" value= "" name="titulo" id="titulo">
+                    <input required="true" tabindex="1" type="text" value= "" name="nome" id="nome">
                 </div>
                 <div class="form-item">
                     <label for="">Email</label>
-                    <input tabindex="2" type="text" value= "" name="titulo" id="titulo">
+                    <input required="true" tabindex="2" type="text" value= "" name="email" id="email">
                 </div>
                 <div class="form-item">
                     <label for="">Telefone</label>
-                    <input tabindex="3" type="text" value= "" name="titulo" id="titulo">
+                    <input required="true" tabindex="3" type="text" value= "" name="telefone" id="telefone">
                 </div>
                 <div class="form-item">
                     <label for="">Motivo</label>
-                    <input tabindex="4" type="text" value= "" name="titulo" id="titulo">
+                    <input required="true" tabindex="4" type="text" value= "" name="motivo" id="motivo">
                 </div>
                 <div class="form-item">
                     <label for="">Descrição</label>
-                    <textarea tabindex="5" name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="5" ></textarea>
+                    <textarea required="true" tabindex="5" name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="5" ></textarea>
                 </div>
-                <input tabindex="6" type="button" class="btn-enviar" value="Enviar">
+               
+
+                <input type="submit" tabindex="6" type="button" class="btn-enviar" value="Enviar">
             </form>
         </div>
     </section>

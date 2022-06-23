@@ -7,6 +7,13 @@ banco = Banco()
 print("asdasdasd")
 valor = 1
 
+query = """ SELECT * FROM tb_contato where id = %(novoId)s ;"""
+dado = banco.ExecutarSelect(query, ( {'novoId': 4} ));
+
+contato = Contato(id=dado[0],nome=dado[1],telefone=dado[2],email=dado[3],motivo=dado[4],descricao=dado[5])
+
+
+
 
 dados = banco.ExecutarSelect("select * from tb_contato");
 listaContato = []
