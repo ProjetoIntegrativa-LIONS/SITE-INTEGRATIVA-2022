@@ -29,18 +29,24 @@ def homeAdmin():
 @validarSessao
 def modificarInicio():    
     if request.method == "POST":
-        titulo = request.form['titulo']
-        descricao = request.form['descricao']
+
+        texto1 = request.form['texto1']
         titulo2 = request.form['titulo2']
-        imagem = request.files['arquivo-1']
+        texto2 = request.form['texto2']
+
+        arquivo1 = request.files['arquivo-1']
+        arquivo3 = request.files['arquivo-3']
+        texto3 = request.form['texto3']
 
         #DIRETORIO = url_for('static', filename='assets/imagens/downloads')
         DIRETORIO = "static\\assets\\images\\downloads"
         print(DIRETORIO)
-        print(imagem.content_type)
+        print(arquivo1.content_type)
         
         nome_do_arquivo = "NOME"
-        imagem.save(os.path.join(DIRETORIO, nome_do_arquivo))
+        arquivo1.save(os.path.join(DIRETORIO, nome_do_arquivo))
+
+        objetoInicio = Inicio(descricaoImagem1="",descricaoImagem3="",imagem1=arquivo1,imagem3=arquivo3,texto1=texto1,texto2=texto2,texto3=texto3,titulo2=titulo2);
         #objetoInicio = Inicio(descricao=descricao,segundoTitulo=titulo2,titulo=titulo,imagem=imagem);
 
 
