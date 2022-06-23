@@ -25,12 +25,21 @@ CREATE TABLE `databaselions`.`tb_projeto` (
   PRIMARY KEY (`id`));
 
 
-tb_quem_somosCREATE TABLE `databaselions`.`tb_quem_somos` (
+CREATE TABLE `databaselions`.`tb_quem_somos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titulo_1` VARCHAR(60) NOT NULL,
   `texto1` VARCHAR(1000) NOT NULL,
   `texto_2` VARCHAR(1000) NOT NULL,
+  `nome_imagem` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`id`));
+
+INSERT INTO `databaselions`.`tb_quem_somos`
+(`titulo_1`,
+`texto1`,
+`texto_2`,
+`nome_imagem`)
+VALUES
+("","","","");
 
 CREATE TABLE `databaselions`.`tb_inicio` (
   `id` INT NOT NULL AUTO_INCREMENT,

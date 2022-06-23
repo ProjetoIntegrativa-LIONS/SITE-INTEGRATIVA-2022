@@ -15,19 +15,30 @@ class ControlQuemSomos():
     def __init__(self,):
         self.banco = Banco();
 
-    def SelectAll(self):    
-        pass
+    def SelectId(self):
+        id = 1;
+        query="""
+        select * from tb_quem_somos where id = %(novoId)s;
+        """        
+        dados = self.banco.ExecutarSelect(query, ({ 'novoId':id }));
+        for dado in dados:
+            quemsomos = QuemSomos(id=dado[0],titulo1=dado[1],texto1=dado[2],texto2=dado[3],descricaoImagem2=dado[4]);
+        
+        localImagem =  "assets/images/downloads/";
+        localImagem+= quemsomos.descricaoImagem2;
+        quemsomos.descricaoImagem2 = localImagem
+        
+        return quemsomos
 
-    def SelectId(self, id):
-        #dados = self.banco.ExecutarComando("select * from tb_endereco where id_endereco = ?", [id_endereco] )        
-        #return Endereco(id_endereco=dados[0][0], cidade=dados[0][1], estado=dados[0][2],rua=dados[0][3],numero=dados[0][4])
-        return QuemSomos(id=id,titulo1="TITULO 1",descricaoImagem2="DESCRICAO IMAGEM 2",imagem2="",texto1="TEXTO 1",texto2="TEXTO 2");
+    def Update(self, quemSomos):
+        query = """
+        UPDATE `tb_quem_somos`
+        SET
+            `titulo_1` = %(titulo)s,
+            `texto1` = %(texto1)s,
+            `texto_2` = %(texto2)s,
+            `nome_imagem` = %(nomeImagem)s
+        WHERE `id` = 1;
+        """
+        self.banco.ExecutarComando(query,( { 'titulo':quemSomos.titulo1, 'texto1':quemSomos.texto1,'texto2':quemSomos.texto2, 'nomeImagem':quemSomos.descricaoImagem2 } ));
 
-    def Drop(self):
-        pass
-
-    def Update(self):
-        pass
-
-    def Insert(self):
-        pass

@@ -10,6 +10,8 @@ import os
 
 bp_admin = Blueprint('admin',__name__, url_prefix="/admin", template_folder= 'templates')
 
+DIRETORIO = "static\\assets\\images\\downloads"
+
 discionarioTelas = {
     'inicio' : 'inicio',
     'quemSomos' : 'quemSomos',
@@ -61,7 +63,7 @@ def modificarInicio():
 @validarSessao
 def AdmQuemSomos():
     controlador = ControlQuemSomos();
-    registro = controlador.SelectId(id=0);
+    registro = controlador.SelectId();
     return render_template("CadastroQuemSomosAdminDesktop.html", registro = registro , tela=discionarioTelas.get('quemSomos'))
 
 @bp_admin.route("/modificarQuemSomos", methods = ['POST'] )
@@ -72,12 +74,15 @@ def modificarQuemSomos():
         texto1 = request.form['texto1']
         texto2 = request.form['texto2']
         imagem2 = request.files['arquivo-2']
-        descicaoImagem = imagem2.content_length;
-        print(descicaoImagem);
 
-        objetoQuemSomos = QuemSomos(descricaoImagem2="",imagem2=imagem2,texto1=texto1,texto2=texto2,titulo1=titulo1,id=0);
+        nome_imagem = "imagemQuemSomos."
+        nome_imagem += imagem2.filename.split(".")[1];        
+        imagem2.save(os.path.join(DIRETORIO, nome_imagem))
 
-        #SALVAR NO BANCO DE DADOS aqui
+        objetoQuemSomos = QuemSomos(descricaoImagem2=nome_imagem,imagem2=imagem2,texto1=texto1,texto2=texto2,titulo1=titulo1,id=1);
+        controlador = ControlQuemSomos();
+        controlador.Update(objetoQuemSomos);
+        
     return redirect(url_for('admin.AdmQuemSomos'));
 
 #endregion

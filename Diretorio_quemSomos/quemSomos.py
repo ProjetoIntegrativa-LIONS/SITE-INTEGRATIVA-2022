@@ -8,5 +8,5 @@ bp_quemSomos = Blueprint('quemSomos',__name__, url_prefix="/quemSomos", template
 @bp_quemSomos.route("/" )
 def quemSomos():
     controlador = ControlQuemSomos()
-    dados = controlador.SelectAll();
+    dados = controlador.SelectId();
     return Funcoes.CarregarRota('QuemSomosDesktop.html', 'QuemSomosMobile.html',dados=dados)    
