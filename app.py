@@ -1,4 +1,5 @@
 from dis import dis
+from email.mime import application
 from flask import Flask , render_template,  session, request
 from datetime import timedelta
 import os
@@ -13,6 +14,7 @@ from funcoes import Funcoes
 
 
 app = Flask(__name__) 
+application = app
 
 app.secret_key = os.urandom(12).hex()
 

@@ -21,11 +21,13 @@ class ControlProjeto():
 
     def SelectAll(self):    
         listaProjeto = [];        
-        #DEVE BUSCAR OS DADOS DO BANCO DADOS
-        listaProjeto.append(Projeto(descricao="descricao 1",nome="PROJETO 1",id=1,data= datetime.now()));
-        listaProjeto.append(Projeto(descricao="descricao 2",nome="PROJETO 2",id=2,data= datetime.now()));
-        listaProjeto.append(Projeto(descricao="descricao 3",nome="PROJETO 3",id=3,data= datetime.now()));
-        listaProjeto.append(Projeto(descricao="descricao 4",nome="PROJETO 4",id=4,data= datetime.now()));
+        query = """
+            SELECT *
+            FROM `tb_projeto`; """
+        dados = self.banco.ExecutarSelect(query,());
+        for dado in dados:
+            projeto = Projeto(id=dado[0],nome=dado[0],descricao=dado[0],data=dado[0]);
+            listaProjeto.append(projeto);
 
         return listaProjeto;
         
@@ -43,5 +45,8 @@ class ControlProjeto():
         pass
 
     def Insert(self, projeto):
-        #INSERIR UM NOVO REGISTRO NO BANCO
-        pass;
+        query = """
+        
+        """
+        self.banco.ExecutarComando(query,({}));
+
