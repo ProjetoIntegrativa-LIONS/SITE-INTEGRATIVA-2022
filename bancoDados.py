@@ -1,16 +1,13 @@
-import sqlite3
-from sqlite3 import Error
-#from funcoes import Funcoes , LogEnum
+import mysql.connector
+from mysql.connector import errorcode
 
 class Banco():
 
     def ConexaoBanco(self):
-        caminho = "static\\Banco Dados\\BancoDescubraSuaDoenca.db"
         con = None
         try:
-            con = sqlite3.connect(caminho)
-            #Funcoes.criaLog(LogEnum.INFO, LogEnum.banco, "Conexão banco", "", "Conexão aberta com sucesso")
-        except Error as ex:
+            con = mysql.connector.connect(host='localhost',user='root',password='',database='databaselions')
+        except mysql.connector.Error as ex:
             print(ex)
             return ex
         return con
@@ -21,12 +18,25 @@ class Banco():
             cursor = conexao.cursor()
             cursor.execute(sql, parametros)
             conexao.commit()            
+
+        except mysql.connector.Error as ex:
+            print ("ERRO:   "+ str(ex))
+
+        finally:
+            if cursor:
+                cursor.close()
+            if conexao:
+                conexao.close()
+
+    def ExecutarSelect(self, sql, parametros=[]):
+        try:
+            conexao =self.ConexaoBanco() 
+            cursor = conexao.cursor()
+            cursor.execute(sql, parametros)           
             dados = cursor.fetchall()
-            #Funcoes.criaLog(LogEnum.INFO, LogEnum.banco, "COMANDO EXECUTADO BANCO", parametros, sql)
             return dados
 
-        except Error as ex:
-            #Funcoes.criaLog(LogEnum.WARNING, LogEnum.banco, "ERRO BANCO", parametros, sql)
+        except mysql.connector.Error as ex:
             print ("ERRO:   "+ str(ex))
 
         finally:
