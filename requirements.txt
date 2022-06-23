@@ -5,5 +5,7 @@ fpdf==1.7.2
 itsdangerous==2.0.1
 Jinja2==3.0.1
 MarkupSafe==2.0.1
+mysql-connector==2.2.9
+mysqlclient==2.1.1
 Pillow==8.4.0
 Werkzeug==2.0.1
