@@ -1,3 +1,4 @@
+from Dominio_project.ControlContatos import Contato
 from bancoDados import Banco
 
 
@@ -5,6 +6,20 @@ print("asdasdasd")
 banco = Banco()
 print("asdasdasd")
 valor = 1
+
+
+dados = banco.ExecutarSelect("select * from tb_contato");
+listaContato = []
+
+for dado in dados:
+    contato = Contato(id=dado[0],nome=dado[1],telefone=dado[2],email=dado[3],motivo=dado[4],descricao=dado[5])
+    listaContato.append(contato);
+
+print(listaContato)
+
+
+
+
 dados = banco.ExecutarSelect("SELECT * FROM tb_contato where id= %(valor)s;" , ( {'valor':valor,} ));
 query = """
 INSERT INTO `tb_contato`
