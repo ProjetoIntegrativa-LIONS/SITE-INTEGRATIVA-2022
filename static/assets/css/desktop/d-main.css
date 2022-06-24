@@ -216,6 +216,9 @@ footer.desktop section div.whatsapp a:hover{
     header.on .menu-toggle .three{
         background: var(--cor-branca);
     } 
+    header.desktop ul li a:hover:after{
+        display: none;
+    }
     header.desktop ul li.selected a:after{
         display: none;
     }

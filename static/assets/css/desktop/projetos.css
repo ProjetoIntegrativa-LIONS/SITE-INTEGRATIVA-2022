@@ -35,11 +35,15 @@ main.desktop section div.first div img{
     max-width: 100px;
     max-height: 100px;
 }
-main.desktop section div.first div a{
+main.desktop section div.first div button{
     color: var(--cor-preta);
     max-width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
 }
-main.desktop section div.first div a:hover{
+main.desktop section div.first div button:hover{
     text-decoration: underline;
 }
 main.desktop section div.first div p{

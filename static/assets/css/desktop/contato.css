@@ -147,6 +147,7 @@ section div.form form .btn-enviar:focus{
     section div.form{
         order: -1;
         padding: 20px 0;
+        width: 100%;
     }
     main.desktop section .description-page{
         width: 100%;
