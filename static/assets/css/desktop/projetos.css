@@ -12,32 +12,40 @@ main.desktop h1{
     text-align: center;
     margin-bottom: 20px;
 }
-main.desktop section.first{
+main.desktop section{
+    display: block;
+}
+main.desktop section div.first{
     display: flex;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 10px 0;
-    
+    height: 100px;  
+    position: relative;  
 }
-main.desktop section.first div{
+main.desktop section div.first div:last-child{
+    overflow: hidden;
+}
+main.desktop section div.first div{
     padding: 0 20px;
+    display: flex;
+    max-height: 100px;
+    max-width: 100%;
+    text-align: left;
 }
-main.desktop section.first div img{
-    width: 100px;
+main.desktop section div.first div img{
+    max-width: 100px;
+    max-height: 100px;
 }
-main.desktop section.first div a{
-    color: var(--cor-preta)
+main.desktop section div.first div a{
+    color: var(--cor-preta);
+    max-width: 100%;
 }
-main.desktop section.first div a:hover{
+main.desktop section div.first div a:hover{
     text-decoration: underline;
 }
-main.desktop section.first div p{
+main.desktop section div.first div p{
     font-size: 1.4rem;
     text-align: justify;
     white-space: nowrap; 
-    width: 66em; 
     overflow: hidden;
     text-overflow: ellipsis; 
 }
@@ -46,4 +54,7 @@ hr.desktop{
     border-bottom-width: 3px;
     opacity: 0.3;
     border-style: groove;
+}
+@media (max-width: 999px){
+    
 }

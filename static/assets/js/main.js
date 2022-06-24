@@ -4,7 +4,7 @@ const header = document.querySelector("header");
 
 window.addEventListener("scroll", function(event) {
 
-    if(this.scrollY > 80){
+    if(this.scrollY > 150){
         header.classList.toggle("fixed", true);
         return
     }

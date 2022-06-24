@@ -16,22 +16,27 @@
 <main class="desktop">
     <h1>Projetos</h1>
 
-    {% for dado in dados %}
+    <section class="container">
+        {% for dado in dados %}
 
-    <hr class="desktop">
-    <section class="first container">
-        <div><img src="{{url_for('static', filename= dado.descricaoImagem )}}" alt=""></div>
-        <div>
-            <a href="#">
-                <h2>{{ dado.nome }}</h2>
-                <p>{{ dado.descricao }}</p>
-            </a>
+        <hr class="desktop">
+        
+        <div class="first">
+            <div><img src="{{url_for('static', filename= dado.descricaoImagem )}}" alt=""></div>
+            <div>
+                <a href="#">
+                    <h2>{{ dado.nome }}</h2>
+                    <p>{{ dado.descricao }}</p>
+                </a>
+            </div>
         </div>
+
+        
+
+        {% endfor %}
+        <hr class="desktop">
     </section>
-
-    {% endfor %}
-
    
-    <hr class="desktop">
+    
 </main>
 {% endblock conteudo %}
