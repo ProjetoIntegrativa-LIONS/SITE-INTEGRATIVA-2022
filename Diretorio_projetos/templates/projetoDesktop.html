@@ -7,25 +7,23 @@
      {% endblock metaDinamico %}
      {% block styleDinamico %}
         {{ super() }}
-        <link href="{{url_for('static', filename='assets/css/desktop/projetos.css')}}" rel="stylesheet">
+        <link href="{{url_for('static', filename='assets/css/desktop/projeto.css')}}" rel="stylesheet">
      {% endblock styleDinamico %}
 {% endblock head %}
 {{ super() }}
 
 {% block conteudo %}
 <main class="desktop">
-    <h1>Projetos</h1>
-
     <section class="container">
-        
-        <h1>{{ dados.nome }}</h1>
-        <h1>{{ dados.descricao }}</h1>
-        <h1>{{ dados.data }}</h1>
-        <div><img src="{{url_for('static', filename=dados.descricaoImagem)}}" alt=""></div>
-
-        <hr class="desktop">
-    </section>
-   
+        <div>
+            <img src="{{url_for('static', filename=dados.descricaoImagem)}}" alt="">
+            <!-- <span>{{ dados.data }}</span> -->
+        </div>
+        <div>
+            <h1 class="marking">{{ dados.nome }}</h1>
+            <p>{{ dados.descricao }}</p>
+        </div>
+    </section>   
     
 </main>
 {% endblock conteudo %}

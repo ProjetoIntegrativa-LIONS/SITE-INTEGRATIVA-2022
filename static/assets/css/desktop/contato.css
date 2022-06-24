@@ -10,13 +10,10 @@ main.desktop{
 main.desktop .container{
     display: block;
 }
-main.desktop h1{
-    text-align: center;
-    margin-bottom: 20px;
-}
-main.desktop h1{
-    text-align: center;
-    margin-bottom: 20px;
+main.desktop .description-page h1{
+    text-align: left;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
 }
 main.desktop section{
     display: flex;

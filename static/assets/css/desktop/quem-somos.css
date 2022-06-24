@@ -12,6 +12,10 @@ main.desktop section.first{
     text-align: center;
     padding: 50px 0;
 }
+main.desktop section.first h1{
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+}
 main.desktop section.first h2{
     font-size: 3.2rem;
     margin-bottom: 20px;

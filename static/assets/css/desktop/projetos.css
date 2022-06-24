@@ -9,8 +9,7 @@ main.desktop{
     min-height: 80vh;
 }
 main.desktop h1{
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 main.desktop section{
     display: block;
@@ -42,6 +41,7 @@ main.desktop section div.first div button{
     border: none;
     cursor: pointer;
     overflow: hidden;
+    text-align: left;
 }
 main.desktop section div.first div button:hover{
     text-decoration: underline;
