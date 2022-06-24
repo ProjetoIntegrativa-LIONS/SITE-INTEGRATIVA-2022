@@ -9,5 +9,3 @@ def rotaHome():
     controlador = ControlInicio();
     dados = controlador.SelectInicio();
     return render_template("homeDesktop.html", dados=dados, tela=nomeTela)
-    # return Funcoes.CarregarRota(caminhoDesktop="homeDesktop.html",caminhoMobile="homeDesktop.html", dados=dados)
-    # return Funcoes.CarregarRota(caminhoDesktop="homeDesktop.html",caminhoMobile="homeMobile.html", dados=dados)

@@ -40,17 +40,19 @@ def modificarInicio():
         arquivo3 = request.files['arquivo-3']
         texto3 = request.form['texto3']
 
-        #DIRETORIO = url_for('static', filename='assets/imagens/downloads')
-        DIRETORIO = "static\\assets\\images\\downloads"        
-        nome_do_arquivo = "NOME"
-        arquivo1.save(os.path.join(DIRETORIO, nome_do_arquivo))
+        nome_imagem = "imagemInicio1."
+        nome_imagem += arquivo1.filename.split(".")[1];        
+        arquivo1.save(os.path.join(DIRETORIO, nome_imagem))
 
-        objetoInicio = Inicio(descricaoImagem1="",descricaoImagem3="",imagem1=arquivo1,imagem3=arquivo3,texto1=texto1,texto2=texto2,texto3=texto3,titulo2=titulo2);
-        #objetoInicio = Inicio(descricao=descricao,segundoTitulo=titulo2,titulo=titulo,imagem=imagem);
+        nome_imagem2 = "imagemInicio2."
+        nome_imagem2 += arquivo3.filename.split(".")[1];        
+        arquivo3.save(os.path.join(DIRETORIO, nome_imagem2))
 
+        objetoInicio = Inicio(id=1,imagem1=arquivo1,imagem3=arquivo3,descricaoImagem1=nome_imagem,descricaoImagem3=nome_imagem2,texto1=texto1,texto2=texto2,texto3=texto3,titulo2=titulo2);
 
+        controlador = ControlInicio();
+        controlador.Update(objetoInicio);
 
-        #SALVAR NO BANCO DE DADOS aqui
     return redirect(url_for('admin.homeAdmin'));
 #endregion
 

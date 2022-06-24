@@ -7,6 +7,5 @@ bp_projetos = Blueprint('projetos',__name__, url_prefix="/projetos", template_fo
 def projetos():
     nomeTela = "projetos"
     controlador = ControlProjeto();
-    dados = controlador.SelectAll();    
-    
+    dados = controlador.SelectAll();        
     return render_template("projetosDesktop.html", dados=dados, tela=nomeTela)
