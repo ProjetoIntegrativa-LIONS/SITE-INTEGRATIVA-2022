@@ -13,7 +13,7 @@ from funcoes import Funcoes
 app = Flask(__name__) 
 application = app
 
-app.secret_key = os.urandom(12).hex()
+app.config['SECRET_KEY'] = "SECRETA"
 
 app.register_blueprint(bp_home)
 app.register_blueprint(bp_projetos)
