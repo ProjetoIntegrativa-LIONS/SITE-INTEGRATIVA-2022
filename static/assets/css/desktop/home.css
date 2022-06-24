@@ -69,3 +69,19 @@ main.desktop section.third div p{
     text-align: justify;
 }
 /* END MAIN */
+
+@media (max-width: 767px){
+    main.desktop section.first,
+    main.desktop section.third{
+        flex-direction: column;
+    }
+    main.desktop section.first div,
+    main.desktop section.third div{
+        width: 100%;
+    }
+    main.desktop section.first div:last-child,
+    main.desktop section.third div:last-child{
+        order: -1;
+        margin-bottom: 20px;
+    }
+}
