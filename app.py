@@ -1,7 +1,4 @@
-from dis import dis
-from email.mime import application
 from flask import Flask , render_template,  session, request
-from datetime import timedelta
 import os
 
 from Diretorio_home.home import bp_home
@@ -35,7 +32,6 @@ def before_request():
     session.permanent = True
     user_agent = request.headers.get('User-Agent')    
     session['dispositivo'] = Funcoes.PegarTipoDispositivo(user_agent)    
-
 
 
 if __name__ == "__main__":

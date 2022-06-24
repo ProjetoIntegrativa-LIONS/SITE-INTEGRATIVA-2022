@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
-from funcoes import Funcoes , LogEnum
+from flask import Blueprint , redirect , request, url_for
+from funcoes import Funcoes 
 from Dominio_project.ControlContatos import Contato,ControlContato
 
 bp_contatos = Blueprint('contatos',__name__, url_prefix="/contatos", template_folder= 'templates')

@@ -1,5 +1,4 @@
-import imp
-from flask import Blueprint, render_template , request, session
+from flask import Blueprint, render_template 
 from Dominio_project.ControlProjeto import Projeto,ControlProjeto
 from funcoes import Funcoes
 

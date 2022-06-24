@@ -1,4 +1,3 @@
-import imp
 from bancoDados import Banco
 from funcoes import Funcoes
 

@@ -1,6 +1,4 @@
 from datetime import datetime
-from re import I
-from tkinter.messagebox import RETRY
 from xmlrpc.client import DateTime
 from bancoDados import Banco
 

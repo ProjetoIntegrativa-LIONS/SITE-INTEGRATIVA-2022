@@ -1,6 +1,5 @@
-from asyncio.windows_events import NULL
 from datetime import datetime
-from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
+from flask import Blueprint, render_template , redirect , request, url_for
 from Diretorio_login.login import validarSessao
 from Dominio_project.ControlContatos import Contato, ControlContato
 from Dominio_project.ControlInicio import  Inicio, ControlInicio
@@ -164,10 +163,7 @@ def visualizarContato():
         id = request.form['id']
         controlador = ControlContato();
         contato = controlador.SelectId(id);
-        if(contato == NULL):
-            return redirect(url_for('admin.AdmContato'))
-        else:
-            return render_template("ViewContatoUnicoAdminDesktop.html",dados=contato, tela=discionarioTelas.get('contato'))
+        return render_template("ViewContatoUnicoAdminDesktop.html",dados=contato, tela=discionarioTelas.get('contato'))
 #endregion
 
 

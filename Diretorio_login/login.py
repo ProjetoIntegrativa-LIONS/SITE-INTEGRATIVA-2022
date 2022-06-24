@@ -1,6 +1,6 @@
 from functools import wraps
-from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
-from funcoes import Funcoes , LogEnum
+from flask import Blueprint, render_template , redirect , request, url_for, session
+from funcoes import Funcoes 
 from Dominio_project.ControlUsuario import Usuario, ControlUsuario
 
 
