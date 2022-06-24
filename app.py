@@ -1,5 +1,4 @@
 from flask import Flask , render_template,  session, request
-import os
 
 from Diretorio_home.home import bp_home
 from Diretorio_projetos.projetos import bp_projetos
@@ -21,6 +20,7 @@ app.register_blueprint(bp_login)
 app.register_blueprint(bp_admin)
 app.register_blueprint(bp_quemSomos)
 app.register_blueprint(bp_contatos)
+
 
 @app.errorhandler(404)
 def rotaErro404(error):

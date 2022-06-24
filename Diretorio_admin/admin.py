@@ -136,10 +136,8 @@ def cadastroEmBancoDeProjeto():
             
         
         if id != "0" and imagem.filename =="":
-            print("aaaaaaaaaaaaaaaaaaa")
             banco.UpdateSemImagem(projeto=objetoProjeto);
         else:
-            print("bbbbbbbbbbbbbbbbbbbbbb")
             banco.Update(projeto=objetoProjeto);
 
     return redirect(url_for('admin.AdmProjetos'));

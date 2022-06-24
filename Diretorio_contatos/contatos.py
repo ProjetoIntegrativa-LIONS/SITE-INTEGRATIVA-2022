@@ -22,6 +22,5 @@ def cadastrarContato():
         contato = Contato(descricao=descricao,email=email,telefone=telefone,motivo=motivo,nome=nome);
         controlador = ControlContato();
         controlador.InsertContato(contato=contato);
-        print("contato inserido")
     return redirect(url_for('contatos.contatos'));
 
