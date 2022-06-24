@@ -1,0 +1,26 @@
+{% extends 'indexDesktop.html' %}
+{% block head %}
+     {% block metaDinamico %}
+     {{ super() }}
+     <meta name="description" content="Texto breve sobre o Lions clube">
+     <title>Inicio Lions Clube</title>
+     {% endblock metaDinamico %}
+     {% block styleDinamico %}
+        {{ super() }}
+        <link href="{{url_for('static', filename='assets/css/desktop/projetos.css')}}" rel="stylesheet">
+     {% endblock styleDinamico %}
+{% endblock head %}
+{{ super() }}
+
+{% block conteudo %}
+<main class="desktop">
+    <h1>Projetos</h1>
+
+    <section class="container">
+        
+        <hr class="desktop">
+    </section>
+   
+    
+</main>
+{% endblock conteudo %}

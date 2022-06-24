@@ -20,15 +20,23 @@
         {% for dado in dados %}
 
         <hr class="desktop">
+        <form action="{{ url_for('projetos.viewProjeto') }}" method="POST" name="projeto{{ dados.id }}">
+            <input type="hidden" name="idProjeto" id="idProjeto" value="{{ dado.id }}"> 
+
+            <div class="first">
+                <div><img src="{{url_for('static', filename= dado.descricaoImagem )}}" alt=""></div>
+                <div>
+                    <button  type="submit">
+                        <h2>{{ dado.nome }}</h2>
+                        <p>{{ dado.descricao }}</p>
+
+                    </button>
+                </div>
+
+        </form>
+
+
         
-        <div class="first">
-            <div><img src="{{url_for('static', filename= dado.descricaoImagem )}}" alt=""></div>
-            <div>
-                <a href="#">
-                    <h2>{{ dado.nome }}</h2>
-                    <p>{{ dado.descricao }}</p>
-                </a>
-            </div>
         </div>
 
         
