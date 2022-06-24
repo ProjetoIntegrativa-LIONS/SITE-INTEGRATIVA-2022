@@ -6,8 +6,8 @@ class Banco():
     def ConexaoBanco(self):
         con = None
         try:
-            con = mysql.connector.connect(host='localhost',user='root',password='',database='databaselions')
-        except mysql.connector.Error as ex:
+            con = mysql.connector.connect(host='lionslages.org.br',user='lionsl78_master', port="3306", passwd='.Ce)zTA#9?0_;LLTi^',database='lionsl78_master_db')
+        except mysql.connector.Error as ex:     
             print(ex)
             return ex
         return con
