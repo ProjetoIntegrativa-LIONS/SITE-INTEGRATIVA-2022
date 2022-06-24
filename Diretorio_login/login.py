@@ -1,7 +1,7 @@
 from functools import wraps
 from flask import Blueprint, render_template , redirect , request, url_for, session
 from funcoes import Funcoes 
-from Dominio_project.ControlUsuario import Usuario, ControlUsuario
+from Dominio_project.ControlUsuario import  ControlUsuario
 
 
 bp_login = Blueprint('login',__name__, url_prefix="/login", template_folder= 'templates')

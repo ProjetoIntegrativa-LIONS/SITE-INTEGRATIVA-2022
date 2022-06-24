@@ -21,7 +21,7 @@ class ControlUsuario():
         
     def VerificarSenha(self, nome="", senha=""):
         #VERIFICAR SE A SENHA BATE OU NAO
-        senhaCorreta= "admin"
+        senhaCorreta= "lionscopacabanalages"
         senhaCorreta = Funcoes.cifrarSenha(senhaCorreta);
         if senhaCorreta == senha and nome == "admin":
             return True;

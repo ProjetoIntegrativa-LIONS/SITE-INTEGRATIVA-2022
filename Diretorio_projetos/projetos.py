@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from Dominio_project.ControlProjeto import Projeto,ControlProjeto
+from Dominio_project.ControlProjeto import ControlProjeto
 
 bp_projetos = Blueprint('projetos',__name__, url_prefix="/projetos", template_folder= 'templates')
 
