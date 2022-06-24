@@ -25,6 +25,13 @@ main.desktop section{
 main.desktop section .description-page{
     text-align: center;
     margin: 10px 0;
+    width: 50%;
+}
+main.desktop section .description-page div{
+    margin: 20px 0 30px;
+}
+main.desktop section .description-page h2{
+    text-align: left;
 }
 main.desktop section .description-page div p{
     text-align: left;
@@ -61,7 +68,6 @@ section div.form form .form-item label{
     display: block;
     font-size: 1.6rem;
     font-weight: 400;
-    margin-bottom: 8px;
 }
 section div.form form .form-item input{
     display: block;
@@ -132,4 +138,16 @@ section div.form form .btn-enviar:hover,
 section div.form form .btn-enviar:focus{
     opacity: 0.9;
     cursor: pointer;
+}
+
+@media (max-width: 999px){
+    main.desktop section{
+        flex-direction: column;
+    }
+    section div.form{
+        order: -1;
+    }
+    main.desktop section .description-page{
+        width: 100%;
+    }
 }

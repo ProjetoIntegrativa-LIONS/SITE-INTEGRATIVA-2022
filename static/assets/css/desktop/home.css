@@ -23,7 +23,7 @@ main.desktop section.first div img{
     width: 100%;
 }
 main.desktop section.first div p{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     text-align: justify;
 }
 hr.desktop{
@@ -43,7 +43,7 @@ main.desktop section.second h2{
     margin-bottom: 20px;
 }
 main.desktop section.second div p{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     text-align: justify;
     line-height: 3.4rem;
 }
@@ -65,7 +65,7 @@ main.desktop section.third div img{
     width: 100%;
 }
 main.desktop section.third div p{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     text-align: justify;
 }
 /* END MAIN */
