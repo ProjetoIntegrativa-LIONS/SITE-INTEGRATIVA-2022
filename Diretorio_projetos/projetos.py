@@ -9,4 +9,3 @@ def projetos():
     controlador = ControlProjeto();
     dados = controlador.SelectAll();    
     return render_template("projetosDesktop.html", dados=dados, tela=nomeTela)
-    # return Funcoes.CarregarRota(caminhoDesktop= "projetosDesktop.html",caminhoMobile="projetosMobile.html",dados=dados)

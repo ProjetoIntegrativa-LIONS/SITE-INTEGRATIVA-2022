@@ -22,28 +22,59 @@ class ControlProjeto():
             SELECT *
             FROM `tb_projeto`; """
         dados = self.banco.ExecutarSelect(query,());
+
         for dado in dados:
-            projeto = Projeto(id=dado[0],nome=dado[0],descricao=dado[0],data=dado[0]);
+            projeto = Projeto(id=dado[0],nome=dado[1],descricao=dado[2],data=dado[3],descricaoImagem=dado[4]);
+            localImagem =  "assets/images/downloads/";
+            localImagem+= projeto.descricaoImagem;
+            projeto.descricaoImagem = localImagem
+
             listaProjeto.append(projeto);
 
         return listaProjeto;
         
     def SelectId(self, id):
-        #SELECIONAR UM REGISTRO DO BANCO
-        return Projeto(descricao="descricao 1",nome="TESTE 1",id=1,data=datetime.now(),imagem="")
+        query = """
+            SELECT *
+            FROM `tb_projeto` where `id` = %(id)s; """
+        dados = self.banco.ExecutarSelect(query,({'id':id }));
+
+        for dado in dados:
+            projeto = Projeto(id=dado[0],nome=dado[1],descricao=dado[2],data=dado[3],descricaoImagem=dado[4]);
+            localImagem =  "assets/images/downloads/";
+            localImagem+= projeto.descricaoImagem;
+            projeto.descricaoImagem = localImagem
+
+        return projeto;        
 
 
     def Drop(self, id):
-        #DELETAR REGISTRO DO BANCO
-        pass
+        query = """
+            DELETE FROM `tb_projeto`
+            WHERE id = %(id)s;
+        """
+        self.banco.ExecutarComando(query, ({'id':id }));
 
     def Update(self, projeto):
-        #ATUALIZAR REGISTRO DO BANCO
+        query = """
+            UPDATE `tb_projeto`
+                SET
+                `titulo` = %(titulo)s,
+                `descricao` = %(descricao)s,
+                `data` = %(data)s,
+                `nome_imagem` = %(imagem)s
+            WHERE `id` = %(id)s;"""
+        self.banco.ExecutarComando(query, ({'id':projeto.id ,'titulo':projeto.nome,'descricao':projeto.descricao,'data':projeto.data, 'imagem':projeto.descricaoImagem}));
         pass
 
     def Insert(self, projeto):
-        query = """
+        query = """INSERT INTO `tb_projeto`
+            (`titulo`, `descricao`, `data`, `nome_imagem`)
+            VALUES
+            (%(titulo)s , %(descricao)s, %(data)s, %(imagem)s); """
+        print(projeto.id)
+        print(projeto.nome)
+        projeto.data = datetime.now();
         
-        """
-        self.banco.ExecutarComando(query,({}));
+        self.banco.ExecutarComando(query,({'titulo':projeto.nome,'descricao':projeto.descricao,'data':projeto.data, 'imagem':projeto.descricaoImagem}));
 

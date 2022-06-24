@@ -1,3 +1,4 @@
+from datetime import datetime
 from Dominio_project.ControlContatos import Contato
 from bancoDados import Banco
 
@@ -6,6 +7,17 @@ print("asdasdasd")
 banco = Banco()
 print("asdasdasd")
 valor = 1
+
+query = """
+            SELECT *
+            FROM `tb_projeto`; """
+dados = banco.ExecutarSelect(query,());
+
+
+
+
+
+
 
 query = """ SELECT * FROM tb_contato;"""
 dado = banco.ExecutarSelect(query, (  ));
@@ -22,7 +34,6 @@ for dado in dados:
     contato = Contato(id=dado[0],nome=dado[1],telefone=dado[2],email=dado[3],motivo=dado[4],descricao=dado[5])
     listaContato.append(contato);
 
-print(listaContato)
 
 
 
@@ -35,5 +46,3 @@ VALUES
 (%(nome)s, %(telefone)s,%(email)s,%(motivo)s,%(descicao)s )"""
 
 banco.ExecutarComando(query, ( {'nome':"novo nome",'telefone':"47992123123",'email':"leonardo@gmail.com",'motivo':"nada a ver",'descicao':"Descricaonada a ver" } ));
-
-print(dados)

@@ -1,4 +1,5 @@
 from datetime import datetime
+from telnetlib import PRAGMA_HEARTBEAT
 from flask import Blueprint, render_template , redirect , request, url_for
 from Diretorio_login.login import validarSessao
 from Dominio_project.ControlContatos import Contato, ControlContato
@@ -40,10 +41,7 @@ def modificarInicio():
         texto3 = request.form['texto3']
 
         #DIRETORIO = url_for('static', filename='assets/imagens/downloads')
-        DIRETORIO = "static\\assets\\images\\downloads"
-        print(DIRETORIO)
-        print(arquivo1.content_type)
-        
+        DIRETORIO = "static\\assets\\images\\downloads"        
         nome_do_arquivo = "NOME"
         arquivo1.save(os.path.join(DIRETORIO, nome_do_arquivo))
 
@@ -97,15 +95,12 @@ def AdmProjetos():
 @bp_admin.route("/telaCadastroProjetos")
 @validarSessao
 def telaCadastroProjetos(id):
-    print(id);
     controlador = ControlProjeto();
-    if id == 0:
-        projeto = Projeto(nome="",descricao="",data="",id=0, imagem="");
-    else:
+    if(id != 0):
         projeto = controlador.SelectId(id);
+    else:
+        projeto = Projeto(data=datetime.now(),nome="",descricao="",descricaoImagem="",imagem="",id=id);
 
-    print(projeto.descricao)
-    print(projeto.nome)
     return render_template("CadastroProjetosAdminDesktop.html", dados = projeto ,tela=discionarioTelas.get('projetos'))
 
 @bp_admin.route("/cadastroEmBancoDeProjeto", methods = ['POST'] )
@@ -118,12 +113,16 @@ def cadastroEmBancoDeProjeto():
         descricao = request.form['descricao']        
         imagem = request.files['arquivo-1']
 
-        objetoProjeto = Projeto(data=datetime.now(),titulo=titulo,descricao=descricao,imagem=imagem,id=id);
+        nome_imagem = "imagemProjeto."
+        nome_imagem += imagem.filename.split(".")[1];        
+        imagem.save(os.path.join(DIRETORIO, nome_imagem))
+
+        objetoProjeto = Projeto(data=datetime.now() ,descricao=descricao,nome=titulo,imagem=imagem,descricaoImagem=nome_imagem,id=id);
 
         banco = ControlProjeto();
-        if id== 0:
+        if id == "0":
             banco.Insert(objetoProjeto);
-        if id != 0:
+        if id != "0":
             banco.Update(projeto=objetoProjeto);
 
     return redirect(url_for('admin.AdmProjetos'));
@@ -143,8 +142,6 @@ def deletarEditarInserirProjeto():
     if tipo =="Excluir":
         banco = ControlProjeto();
         banco.Drop(idProjeto);
-        print("Dropou o projeto")
-
     return redirect(url_for('admin.AdmProjetos'));
 #endregion
 
