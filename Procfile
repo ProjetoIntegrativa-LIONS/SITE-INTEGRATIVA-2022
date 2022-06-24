@@ -1,1 +1,1 @@
-web: gunicorn lionslages:app
+web: gunicorn app:app
