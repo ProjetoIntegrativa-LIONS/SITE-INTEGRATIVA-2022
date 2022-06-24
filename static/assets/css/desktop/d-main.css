@@ -105,3 +105,9 @@ footer.desktop section div.whatsapp a:hover{
 }
 /* END FOOTER */
 
+@media (max-width: 768px) {
+    header.desktop nav{
+        display: block;
+    }
+}
+

@@ -8,4 +8,6 @@ bp_home = Blueprint('home',__name__, url_prefix="/", template_folder= 'templates
 def rotaHome():
     controlador = ControlInicio();
     dados = controlador.SelectInicio();
-    return Funcoes.CarregarRota(caminhoDesktop="homeDesktop.html",caminhoMobile="homeMobile.html", dados=dados)
+    return render_template("homeDesktop.html", dados=dados)
+    # return Funcoes.CarregarRota(caminhoDesktop="homeDesktop.html",caminhoMobile="homeDesktop.html", dados=dados)
+    # return Funcoes.CarregarRota(caminhoDesktop="homeDesktop.html",caminhoMobile="homeMobile.html", dados=dados)

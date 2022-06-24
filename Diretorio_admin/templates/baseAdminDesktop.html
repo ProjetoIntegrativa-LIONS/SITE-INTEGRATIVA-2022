@@ -8,26 +8,28 @@
 {% block headerPadrao %}
 
 <header class="desktop-admin">
-    <div class="menu-toggle">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
+    <div class="positionMenu">
+        <div class="menu-toggle">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </div>
+        <div class="logo mb-30">
+            <img class="mb-15" src="{{url_for('static', filename='assets/images/logo-1-original.jpg')}}"
+                alt="Logo Lions Clube Internacional">
+            <h1>Gerenciador de conteúdo Lions</h1>
+        </div>
+        <nav>
+            <ul>
+                
+                <li {% if tela == 'inicio': %} class="select-menu" {% endif %}><a class="select-menu" href="{{ url_for('admin.homeAdmin') }}">Inicio</a></li>
+                <li {% if tela == 'quemSomos': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos</a></li>
+                <li {% if tela == 'projeto': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmProjetos') }}">Projetos</a></li>
+                <li {% if tela == 'contato': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmContato') }}">Contatos</a></li>
+                <li><a href="{{ url_for('home.rotaHome') }}">Voltar ao site</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="logo mb-30">
-        <img class="mb-15" src="{{url_for('static', filename='assets/images/logo-1-original.jpg')}}"
-            alt="Logo Lions Clube Internacional">
-        <h1>Gerenciador de conteúdo Lions</h1>
-    </div>
-    <nav>
-        <ul>
-            
-            <li {% if tela == 'inicio': %} class="select-menu" {% endif %}><a class="select-menu" href="{{ url_for('admin.homeAdmin') }}">Inicio</a></li>
-            <li {% if tela == 'quemSomos': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmQuemSomos') }}">Quem somos</a></li>
-            <li {% if tela == 'projeto': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmProjetos') }}">Projetos</a></li>
-            <li {% if tela == 'contato': %} class="select-menu" {% endif %}><a href="{{ url_for('admin.AdmContato') }}">Contatos</a></li>
-            <li><a href="{{ url_for('home.rotaHome') }}">Voltar ao site</a></li>
-        </ul>
-    </nav>
 </header>
 {% endblock headerPadrao %}
 
