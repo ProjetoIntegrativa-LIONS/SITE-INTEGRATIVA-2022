@@ -49,16 +49,16 @@ main.desktop section.first{
 /* FORMULÁRIO */
 section div.form{
     padding: 20px;
+    width: 50%;
 }
 section div.form form{
     margin: auto;
     width: 100%;
-    max-width: 50px;
     padding: 15px;
     background: var(--cor-branca);
     border-radius: 5px;
     box-shadow: 0px 0px 8px -3px black;
-    min-width: 400px;
+    min-width: 300px;
 }
 section div.form form .form-item{
     width: 100%;
@@ -146,6 +146,7 @@ section div.form form .btn-enviar:focus{
     }
     section div.form{
         order: -1;
+        padding: 20px 0;
     }
     main.desktop section .description-page{
         width: 100%;
