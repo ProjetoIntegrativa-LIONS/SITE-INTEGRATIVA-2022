@@ -34,23 +34,28 @@ def modificarInicio():
         texto1 = request.form['texto1']
         titulo2 = request.form['titulo2']
         texto2 = request.form['texto2']
+        texto3 = request.form['texto3']
 
         arquivo1 = request.files['arquivo-1']
         arquivo3 = request.files['arquivo-3']
-        texto3 = request.form['texto3']
-
-        nome_imagem = "imagemInicio1."
-        nome_imagem += arquivo1.filename.split(".")[1];        
-        arquivo1.save(os.path.join(DIRETORIO, nome_imagem))
-
-        nome_imagem2 = "imagemInicio2."
-        nome_imagem2 += arquivo3.filename.split(".")[1];        
-        arquivo3.save(os.path.join(DIRETORIO, nome_imagem2))
-
-        objetoInicio = Inicio(id=1,imagem1=arquivo1,imagem3=arquivo3,descricaoImagem1=nome_imagem,descricaoImagem3=nome_imagem2,texto1=texto1,texto2=texto2,texto3=texto3,titulo2=titulo2);
-
+        deveEditar = True;
         controlador = ControlInicio();
-        controlador.Update(objetoInicio);
+        if( arquivo1.filename == "" or arquivo3.filename == ""):
+            objetoInicio = Inicio(id=1,imagem1="",imagem3="",descricaoImagem3="",descricaoImagem1="",texto1=texto1,texto2=texto2,texto3=texto3,titulo2=titulo2);
+            controlador.UpdateSemImage(objetoInicio)
+            deveEditar=False
+
+        if(deveEditar == True):
+            nome_imagem = "imagemInicio1."
+            nome_imagem += arquivo1.filename.split(".")[1];        
+            arquivo1.save(os.path.join(DIRETORIO, nome_imagem))
+
+            nome_imagem2 = "imagemInicio2."
+            nome_imagem2 += arquivo3.filename.split(".")[1];        
+            arquivo3.save(os.path.join(DIRETORIO, nome_imagem2))
+
+            objetoInicio = Inicio(id=1,imagem1=arquivo1,imagem3=arquivo3,descricaoImagem1=nome_imagem,descricaoImagem3=nome_imagem2,texto1=texto1,texto2=texto2,texto3=texto3,titulo2=titulo2);
+            controlador.Update(objetoInicio);
 
     return redirect(url_for('admin.homeAdmin'));
 #endregion
@@ -71,16 +76,19 @@ def modificarQuemSomos():
         titulo1 = request.form['titulo1']
         texto1 = request.form['texto1']
         texto2 = request.form['texto2']
+        controlador = ControlQuemSomos();
         imagem2 = request.files['arquivo-2']
 
-        nome_imagem = "imagemQuemSomos."
-        nome_imagem += imagem2.filename.split(".")[1];        
-        imagem2.save(os.path.join(DIRETORIO, nome_imagem))
+        if( imagem2.filename != ""):    
+            nome_imagem = "imagemQuemSomos."
+            nome_imagem += imagem2.filename.split(".")[1];        
+            imagem2.save(os.path.join(DIRETORIO, nome_imagem))
+            objetoQuemSomos = QuemSomos(descricaoImagem2=nome_imagem,imagem2=imagem2,texto1=texto1,texto2=texto2,titulo1=titulo1,id=1);
+            controlador.Update(objetoQuemSomos);
+        else:
+            objetoQuemSomos = QuemSomos(descricaoImagem2="",imagem2="",texto1=texto1,texto2=texto2,titulo1=titulo1,id=1);
+            controlador.UpdateSemImagem(objetoQuemSomos);
 
-        objetoQuemSomos = QuemSomos(descricaoImagem2=nome_imagem,imagem2=imagem2,texto1=texto1,texto2=texto2,titulo1=titulo1,id=1);
-        controlador = ControlQuemSomos();
-        controlador.Update(objetoQuemSomos);
-        
     return redirect(url_for('admin.AdmQuemSomos'));
 
 #endregion
@@ -113,17 +121,25 @@ def cadastroEmBancoDeProjeto():
         titulo = request.form['titulo']
         descricao = request.form['descricao']        
         imagem = request.files['arquivo-1']
-
-        nome_imagem = "imagemProjeto."
-        nome_imagem += imagem.filename.split(".")[1];        
-        imagem.save(os.path.join(DIRETORIO, nome_imagem))
-
-        objetoProjeto = Projeto(data=datetime.now() ,descricao=descricao,nome=titulo,imagem=imagem,descricaoImagem=nome_imagem,id=id);
-
         banco = ControlProjeto();
-        if id == "0":
-            banco.Insert(objetoProjeto);
-        if id != "0":
+        
+        if( imagem.filename != ""):    
+            nome_imagem = "imagemProjeto."
+            nome_imagem += imagem.filename.split(".")[1];        
+            imagem.save(os.path.join(DIRETORIO, nome_imagem))
+
+            objetoProjeto = Projeto(data=datetime.now() ,descricao=descricao,nome=titulo,imagem=imagem,descricaoImagem=nome_imagem,id=id);
+            if id == "0":
+                banco.Insert(objetoProjeto);
+        else:
+            objetoProjeto = Projeto(data=datetime.now() ,descricao=descricao,nome=titulo,imagem="",descricaoImagem="",id=id);
+            
+        
+        if id != "0" and imagem.filename =="":
+            print("aaaaaaaaaaaaaaaaaaa")
+            banco.UpdateSemImagem(projeto=objetoProjeto);
+        else:
+            print("bbbbbbbbbbbbbbbbbbbbbb")
             banco.Update(projeto=objetoProjeto);
 
     return redirect(url_for('admin.AdmProjetos'));

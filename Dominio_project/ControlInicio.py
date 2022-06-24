@@ -44,3 +44,14 @@ class ControlInicio():
                 WHERE %(id)s
         """
         self.banco.ExecutarComando(query,( { 'texto1':inicio.texto1,'titulo_2': inicio.titulo2,'texto_2':inicio.texto2,'texto_3':inicio.texto3,'nome_imagem1':inicio.descricaoImagem1,'nome_imagem2':inicio.descricaoImagem3,'id':inicio.id_inicio } ))
+
+
+    def UpdateSemImage(self, inicio):
+        query = """
+            UPDATE `tb_inicio` 
+                SET 
+            `texto1`= %(texto1)s ,`titulo_2`= %(titulo_2)s ,`texto_2`= %(texto_2)s ,
+            `texto_3`= %(texto_3)s 
+                WHERE %(id)s
+        """
+        self.banco.ExecutarComando(query,( { 'texto1':inicio.texto1,'titulo_2': inicio.titulo2,'texto_2':inicio.texto2,'texto_3':inicio.texto3,'id':inicio.id_inicio } ))

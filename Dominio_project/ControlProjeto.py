@@ -54,17 +54,28 @@ class ControlProjeto():
         """
         self.banco.ExecutarComando(query, ({'id':id }));
 
-    def Update(self, projeto):
+    def UpdateSemImagem(self, projeto):
         query = """
-            UPDATE `tb_projeto`
-                SET
-                `titulo` = %(titulo)s,
-                `descricao` = %(descricao)s,
-                `data` = %(data)s,
-                `nome_imagem` = %(imagem)s
-            WHERE `id` = %(id)s;"""
-        self.banco.ExecutarComando(query, ({'id':projeto.id ,'titulo':projeto.nome,'descricao':projeto.descricao,'data':projeto.data, 'imagem':projeto.descricaoImagem}));
-        pass
+                UPDATE `tb_projeto`
+                    SET
+                    `titulo` = %(titulo)s,
+                    `descricao` = %(descricao)s,
+                    `data` = %(data)s
+                WHERE `id` = %(id)s;"""
+        self.banco.ExecutarComando(query, ({'id':projeto.id ,'titulo':projeto.nome,'descricao':projeto.descricao,'data':projeto.data}));
+
+    def Update(self, projeto):
+            query = """
+                UPDATE `tb_projeto`
+                    SET
+                    `titulo` = %(titulo)s,
+                    `descricao` = %(descricao)s,
+                    `data` = %(data)s,
+                    `nome_imagem` = %(imagem)s
+                WHERE `id` = %(id)s;"""
+            self.banco.ExecutarComando(query, ({'id':projeto.id ,'titulo':projeto.nome,'descricao':projeto.descricao,'data':projeto.data, 'imagem':projeto.descricaoImagem}));
+
+
 
     def Insert(self, projeto):
         query = """INSERT INTO `tb_projeto`

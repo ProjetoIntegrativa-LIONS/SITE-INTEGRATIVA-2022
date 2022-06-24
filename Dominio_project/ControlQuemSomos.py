@@ -42,3 +42,15 @@ class ControlQuemSomos():
         """
         self.banco.ExecutarComando(query,( { 'titulo':quemSomos.titulo1, 'texto1':quemSomos.texto1,'texto2':quemSomos.texto2, 'nomeImagem':quemSomos.descricaoImagem2 } ));
 
+
+    def UpdateSemImagem(self, quemSomos):
+        query = """
+        UPDATE `tb_quem_somos`
+        SET
+            `titulo_1` = %(titulo)s,
+            `texto1` = %(texto1)s,
+            `texto_2` = %(texto2)s
+        WHERE `id` = 1;
+        """
+        self.banco.ExecutarComando(query,( { 'titulo':quemSomos.titulo1, 'texto1':quemSomos.texto1,'texto2':quemSomos.texto2 } ));
+
