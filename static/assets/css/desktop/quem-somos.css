@@ -45,3 +45,22 @@ hr.desktop{
     opacity: 0.3;
     border-style: groove;
 }
+
+@media (max-width: 767px){
+    main.desktop section.second{
+        display: block;
+    }
+    main.desktop section.second div{
+        max-width: 100%;
+    }
+    main.desktop section.first h2{
+        font-size: 2.2rem;
+    }
+    main.desktop section.first div p{
+        font-size: 1.2rem;
+        text-align: justify;
+    }
+    main.desktop section.second div p{
+        font-size: 1.2rem;
+    }
+}
