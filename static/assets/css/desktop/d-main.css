@@ -111,6 +111,24 @@ footer.desktop section div ul li:hover:after {
     right: 0;
     margin: auto;
 }
+footer.desktop section div ul li:last-child:hover:after{
+    display: none;
+}
+footer.desktop section div ul li:last-child a:hover:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--cor-branca);
+    left: 0;
+    bottom: -15px;
+}
+footer.desktop section div ul li:last-child a:last-child{
+    margin-left: 15px;
+}
+footer.desktop section div ul li img{
+    filter: invert(0.9);
+}
 footer.desktop section div.whatsapp{
     transition: transform 1.2s
 }
