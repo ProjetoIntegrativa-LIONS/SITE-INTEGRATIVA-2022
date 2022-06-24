@@ -1,6 +1,6 @@
 from functools import wraps
-from flask import Blueprint, render_template , redirect , request, url_for, session, jsonify
-from funcoes import Funcoes , LogEnum
+from flask import Blueprint, render_template , redirect , request, url_for, session
+from funcoes import Funcoes 
 from Dominio_project.ControlUsuario import Usuario, ControlUsuario
 
 
@@ -39,9 +39,9 @@ def validarSessao(f):
     @wraps(f)
     #criando uma função aqui dentro do wraps
     def decorated_function(*args, **kwargs):
-        if 'nome' not in session:
-            return redirect(url_for('login.login', falhalogin = 1))
+        if 'nome' in session:
+            return f(*args, **kwargs)            
         else:
-            return f(*args, **kwargs)
+            return redirect(url_for('login.login', falhalogin = 1))
     #retornando a função que acabamos de criar
     return decorated_function
