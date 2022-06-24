@@ -1,4 +1,4 @@
-from flask import Blueprint , redirect , request, url_for
+from flask import Blueprint , redirect , request, url_for, render_template
 from funcoes import Funcoes 
 from Dominio_project.ControlContatos import Contato,ControlContato
 
