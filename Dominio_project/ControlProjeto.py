@@ -28,7 +28,6 @@ class ControlProjeto():
             localImagem =  "assets/images/downloads/";
             localImagem+= projeto.descricaoImagem;
             projeto.descricaoImagem = localImagem
-
             listaProjeto.append(projeto);
 
         return listaProjeto;
@@ -72,8 +71,6 @@ class ControlProjeto():
             (`titulo`, `descricao`, `data`, `nome_imagem`)
             VALUES
             (%(titulo)s , %(descricao)s, %(data)s, %(imagem)s); """
-        print(projeto.id)
-        print(projeto.nome)
         projeto.data = datetime.now();
         
         self.banco.ExecutarComando(query,({'titulo':projeto.nome,'descricao':projeto.descricao,'data':projeto.data, 'imagem':projeto.descricaoImagem}));

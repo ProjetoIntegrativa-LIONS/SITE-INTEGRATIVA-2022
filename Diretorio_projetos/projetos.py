@@ -8,4 +8,5 @@ def projetos():
     nomeTela = "projetos"
     controlador = ControlProjeto();
     dados = controlador.SelectAll();    
+    
     return render_template("projetosDesktop.html", dados=dados, tela=nomeTela)
