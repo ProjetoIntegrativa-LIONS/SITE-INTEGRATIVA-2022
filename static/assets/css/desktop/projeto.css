@@ -17,6 +17,7 @@ main.desktop section{
 main.desktop section div{
     width: 50%;
     padding: 15px;
+    text-align: center;
 }
 main.desktop section div img{
     max-width: 100%;
@@ -25,4 +26,16 @@ main.desktop section div img{
 main.desktop section p{
     font-size: 1.4rem;
     text-align: justify;
+}
+@media (max-width: 767px){
+    main.desktop section{
+        flex-direction: column;
+        width: 100%;
+    }
+    main.desktop section div{
+        width: 100%;
+    }
+    main.desktop section div:last-child{
+        order: -1;
+    }
 }
