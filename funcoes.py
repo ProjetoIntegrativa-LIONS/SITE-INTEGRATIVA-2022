@@ -1,29 +1,7 @@
-from datetime import datetime
 from hashlib import sha3_256
-from enum import Enum
 from flask import render_template, session
 
 from Dominio_project.ControlLogHistorico import ControlLogHistorico, LogHistorico
-
-
-class LogEnum(Enum):
-    INFO='INFO'
-    WARNING = 'WARNING'
-    ERROR = 'ERROR'
-    DEBUG = 'DEBUG'
-    CRITICAL = 'CRITICAL'
-    login = 'login'
-    falhaLogin = 'falha login'
-    logoff = 'logoff'
-    excecao = 'exceção'
-    save = 'salvando informações'
-    redirect = 'redirecionamento'
-    load = 'carregamento dados'
-    sqlInsert = 'Insert'
-    sqlupdate = 'Update'
-    sqldelete = 'Delete'
-    sqlSelect = 'Select'
-    banco = 'comando banco'
 
 class Funcoes(object):
 

@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template , redirect , request
-from Dominio_project.ControlQuemSomos import QuemSomos,ControlQuemSomos
+from flask import Blueprint, render_template 
+from Dominio_project.ControlQuemSomos import ControlQuemSomos
 bp_quemSomos = Blueprint('quemSomos',__name__, url_prefix="/quemSomos", template_folder= 'templates')
 
 @bp_quemSomos.route("/" )

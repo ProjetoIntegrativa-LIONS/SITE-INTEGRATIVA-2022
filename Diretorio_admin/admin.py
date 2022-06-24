@@ -1,8 +1,7 @@
 from datetime import datetime
-from telnetlib import PRAGMA_HEARTBEAT
 from flask import Blueprint, render_template , redirect , request, url_for
 from Diretorio_login.login import validarSessao
-from Dominio_project.ControlContatos import Contato, ControlContato
+from Dominio_project.ControlContatos import  ControlContato
 from Dominio_project.ControlInicio import  Inicio, ControlInicio
 from Dominio_project.ControlProjeto import Projeto, ControlProjeto
 from Dominio_project.ControlQuemSomos import QuemSomos, ControlQuemSomos
