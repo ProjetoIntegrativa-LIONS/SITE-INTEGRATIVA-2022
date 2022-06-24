@@ -15,14 +15,15 @@ main.desktop section.first{
     padding: 50px 0;
 }
 main.desktop section.first div{
-    max-width: 50%;
+    width: 50%;
     padding: 0 20px;
+    text-align: center;
 }
 main.desktop section.first div img{
     width: 100%;
 }
 main.desktop section.first div p{
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-align: justify;
 }
 hr.desktop{
@@ -43,6 +44,8 @@ main.desktop section.second h2{
 }
 main.desktop section.second div p{
     font-size: 1.6rem;
+    text-align: justify;
+    line-height: 3.4rem;
 }
 
 main.desktop section.third{
@@ -54,14 +57,15 @@ main.desktop section.third{
     padding: 50px 0;
 }
 main.desktop section.third div{
-    max-width: 50%;
+    width: 50%;
     padding: 0 20px;
+    text-align: center;
 }
 main.desktop section.third div img{
     width: 100%;
 }
 main.desktop section.third div p{
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-align: justify;
 }
 /* END MAIN */

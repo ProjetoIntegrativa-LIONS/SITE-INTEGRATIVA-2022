@@ -3,12 +3,11 @@
 <html lang="pt-BR">
     {% block head %}
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="shortcut icon" href="{{ url_for('static', filename = 'assets/images/logo-1-original.png')}}">
         <!-- carregamento css padrao -->
         {% block metaDinamico %}
+        <link rel="shortcut icon" href="{{ url_for('static', filename = 'assets/images/logo-1-original.png')}}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% endblock metaDinamico %}
         
         {% block styleDinamico %}
@@ -29,18 +28,24 @@
                         </div>
                         <nav>
                             <ul>
-                                <li>
+                                <!-- <li>
                                     <a href="#" id="cronometroTempo"></a>
-                                </li>
-                                <li><a href="{{ url_for('home.rotaHome') }}">Início</a></li>
-                                <li><a href="{{ url_for('quemSomos.quemSomos') }}">Quem somos</a></li>
-                                <li><a href="{{ url_for('projetos.projetos') }}">Projetos</a></li>
-                                <li><a href="{{ url_for('contatos.contatos') }}">Contato</a></li>
-                                <li><a href="{{ url_for('login.login') }}">Admin</a></li>
+                                </li> -->
+                                
+                                <li {% if tela == 'inicio': %} class="selected" {% endif %}><a href="{{ url_for('home.rotaHome') }}">Início</a></li>
+                                <li {% if tela == 'quemSomos': %} class="selected" {% endif %}><a href="{{ url_for('quemSomos.quemSomos') }}">Quem somos</a></li>
+                                <li {% if tela == 'projetos': %} class="selected" {% endif %}><a href="{{ url_for('projetos.projetos') }}">Projetos</a></li>
+                                <li {% if tela == 'contato': %} class="selected" {% endif %}><a href="{{ url_for('contatos.contatos') }}">Contato</a></li>
+                                <!-- <li><a href="{{ url_for('login.login') }}">Admin</a></li> -->
                                 
                             </ul>
                         </nav>
                     </section>
+                    <div class="menu-toggle">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
                 </header>
             {% endblock headerPadrao %}
         {% endblock header %}
@@ -55,10 +60,9 @@
                 <section class="container">
                     <div>
                         <ul>
-                            <li><a href="">Lions Clube Internacional</a></li>
+                            <li><a target="_blank" href="https://www.lionsclubs.org/en/start-our-approach/club-locator/details?id=34107">Lions Clube Internacional</a></li>
                             <li><a href="{{ url_for('login.login') }}">SGC</a></li>
-                            <li><a href="">Doações</a></li>
-                            <li><a href="">Link 4</a></li>
+                            <li><a href="{{ url_for('contatos.contatos') }}">Doações</a></li>
                         </ul>
                     </div>
                     <div class="whatsapp">
@@ -74,8 +78,9 @@
          
      
         {% block scriptsDinamicos %}
-
-        <script>
+        <script src="{{url_for('static', filename='assets/js/main.js')}}" rel="stylesheet"></script>
+        <script src="{{url_for('static', filename='assets/js/menu.js')}}" rel="stylesheet"></script>
+        <!-- <script>
 
             var IDLE_TIMEOUT = "{{ 60 * 60 }}"
             var tempo = IDLE_TIMEOUT;
@@ -120,7 +125,7 @@
                     alert("Time expired!");
                     window.open(" {{ url_for('login.timeOut') }} ", '_self')
                 }
-            }
+            } -->
         </script>
         {% endblock scriptsDinamicos %}          
 		

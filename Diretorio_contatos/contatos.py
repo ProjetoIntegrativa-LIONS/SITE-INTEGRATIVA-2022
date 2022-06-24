@@ -6,9 +6,11 @@ bp_contatos = Blueprint('contatos',__name__, url_prefix="/contatos", template_fo
 
 @bp_contatos.route("/" )
 def contatos():
+    nomeTela = "contato"
     controlador = ControlContato();
     dados = controlador.SelectAll();
-    return Funcoes.CarregarRota(caminhoDesktop="contatosDesktop.html",caminhoMobile="contatosMobile.html", dados=dados)
+    return render_template("contatosDesktop.html", dados=dados, tela=nomeTela)
+    # return Funcoes.CarregarRota(caminhoDesktop="contatosDesktop.html",caminhoMobile="contatosMobile.html", dados=dados)
 
 @bp_contatos.route("/cadastrarContato",methods = ['POST'] )
 def cadastrarContato():

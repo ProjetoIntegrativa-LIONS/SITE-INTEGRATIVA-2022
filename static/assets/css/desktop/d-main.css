@@ -18,6 +18,10 @@ header{
     align-items: center;
     font-size: 1.6rem;
 }
+header.fixed{
+    position: fixed;
+    z-index: 1;
+}
 header.desktop section{
     display: flex;
     align-items: center;
@@ -31,6 +35,17 @@ header.desktop section div img{
 }
 header.desktop ul{
  display: flex;   
+}
+header.desktop ul li.selected a:after{
+    position: absolute;
+    content: '';
+    background: var(--cor-preta);
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto
 }
 header.desktop ul li a{
     padding: 10px 20px;
@@ -105,9 +120,94 @@ footer.desktop section div.whatsapp a:hover{
 }
 /* END FOOTER */
 
-@media (max-width: 768px) {
-    header.desktop nav{
-        display: block;
+/* MENU RESPONSIVE */
+
+@media (min-width: 767px) and (max-width: 913px){
+    header.desktop section div img {
+        max-width: 250px;
+    }
+}
+@media (min-width: 767px) and (max-width: 860px){
+    header.desktop section div img {
+        max-width: 200px;
     }
 }
 
+@media (max-width: 767px){
+    
+    .menu-toggle{
+        display: block;
+    }
+    nav{
+        display: none;
+    }
+    .one, .two, .three{
+        background-color: var(--cor-principal-azul);
+        height: 5px;
+        width: 100%;
+        margin: 6px auto;
+        transition-duration: 0.3s;
+    }
+    header.on .one{
+        transform:  rotate(45deg) translate(7px, 7px);
+    }
+    header.on .two{
+        opacity: 0;
+    }
+    header.on .three{
+        transform:  rotate(-45deg) translate(8px, -9px);
+    }
+    .menu-toggle{
+        width: 40px;
+        height: 40px;
+        z-index: 4;
+        position: absolute;
+        right: 0;
+        margin-right: 30px;
+    }
+    header.on section{
+        display: block;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: var(--cor-principal-azul);
+        z-index: 3;
+        max-width: 100%;
+        transition-duration: 0.3s;
+    }
+    header.on section div{
+        text-align: center;
+        margin: 50px 0;
+    }
+    header.on section nav{
+        display: block;
+        
+    }
+    header.on section nav ul{
+        display: block;
+        text-align: center;
+        padding: 50px 0;
+    }
+    header.on section nav ul li{
+        margin-bottom: 20px;
+        padding: 20px;
+        width: 300px;
+        margin: auto;
+    }
+    header.on section nav ul li.selected{
+        background: rgba(255,255,255, 0.1);
+        border-radius: 5px;
+    }
+    header.on section nav ul li a{
+        color: var(--cor-branca);
+    }
+    
+    header.on .menu-toggle .one,
+    header.on .menu-toggle .two,
+    header.on .menu-toggle .three{
+        background: var(--cor-branca);
+    } 
+}
+/* MENU RESPONSIVE */

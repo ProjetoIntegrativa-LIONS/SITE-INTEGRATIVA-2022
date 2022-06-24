@@ -4,6 +4,7 @@ main.desktop{
     height: auto;
     align-items: center;
     line-height: 3rem;
+    min-height: 80vh;
 }
 
 main.desktop section.first{

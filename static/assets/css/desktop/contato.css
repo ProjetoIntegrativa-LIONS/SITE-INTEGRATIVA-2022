@@ -7,6 +7,9 @@ main.desktop{
     min-height: 80vh;
     display: block;
 }
+main.desktop .container{
+    display: block;
+}
 main.desktop h1{
     text-align: center;
     margin-bottom: 20px;

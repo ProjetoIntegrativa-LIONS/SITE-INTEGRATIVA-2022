@@ -1,55 +1,60 @@
 {% extends 'indexDesktop.html' %}
 {% block head %}
-     {% block metaDinamico %}
-     <meta name="description" content="Texto breve sobre o Lions clube">
-     <title>Inicio Lions Clube</title>
-     {% endblock metaDinamico %}
-     {% block styleDinamico %}
-        {{ super() }}
-        <link href="{{url_for('static', filename='assets/css/desktop/contato.css')}}" rel="stylesheet">
-     {% endblock styleDinamico %}
+    {% block metaDinamico %}
+    {{ super() }}
+    <meta name="description" content="Texto breve sobre o Lions clube">
+    <title>Inicio Lions Clube</title>
+    {% endblock metaDinamico %}
+
+    {% block styleDinamico %}
+    {{ super() }}
+    <link href="{{url_for('static', filename='assets/css/desktop/contato.css')}}" rel="stylesheet">
+    {% endblock styleDinamico %}
 {% endblock head %}
 {{ super() }}
 
 {% block conteudo %}
-<main class="desktop container">
-    <h1>Contato</h1>
-    <section>
-        <div class="description-page">
-            <h2>Descrição da página de contato</h2>
-            <div>
-                <p>Localização: teste Nº 0 Teste</p>
-                <p>Contato: (49) 99999-9999 - Joao</p>
-                <p>email: teste@teste.com</p>
+<main class="desktop">
+    <div class="container">
+        <h1>Contato</h1>
+        <section>
+            <div class="description-page">
+                <h2>Descrição da página de contato</h2>
+                <div>
+                    <p>Localização: teste Nº 0 Teste</p>
+                    <p>Contato: (49) 99999-9999 - Joao</p>
+                    <p>email: teste@teste.com</p>
+                </div>
             </div>
-        </div>
-        <div class="form">
-            <form action="{{ url_for('contatos.cadastrarContato')  }}" method="POST">
-                <div class="form-item">
-                    <label for="">Nome</label>
-                    <input required="true" tabindex="1" type="text" value= "" name="nome" id="nome">
-                </div>
-                <div class="form-item">
-                    <label for="">Email</label>
-                    <input required="true" tabindex="2" type="text" value= "" name="email" id="email">
-                </div>
-                <div class="form-item">
-                    <label for="">Telefone</label>
-                    <input required="true" tabindex="3" type="text" value= "" name="telefone" id="telefone">
-                </div>
-                <div class="form-item">
-                    <label for="">Motivo</label>
-                    <input required="true" tabindex="4" type="text" value= "" name="motivo" id="motivo">
-                </div>
-                <div class="form-item">
-                    <label for="">Descrição</label>
-                    <textarea required="true" tabindex="5" name="descricao" id="descricao" autocomplete="off" maxlength="200" cols="30" rows="5" ></textarea>
-                </div>
-               
+            <div class="form">
+                <form action="{{ url_for('contatos.cadastrarContato')  }}" method="POST">
+                    <div class="form-item">
+                        <label for="">Nome</label>
+                        <input required="true" tabindex="1" type="text" value="" name="nome" id="nome">
+                    </div>
+                    <div class="form-item">
+                        <label for="">Email</label>
+                        <input required="true" tabindex="2" type="text" value="" name="email" id="email">
+                    </div>
+                    <div class="form-item">
+                        <label for="">Telefone</label>
+                        <input required="true" tabindex="3" type="text" value="" name="telefone" id="telefone">
+                    </div>
+                    <div class="form-item">
+                        <label for="">Motivo</label>
+                        <input required="true" tabindex="4" type="text" value="" name="motivo" id="motivo">
+                    </div>
+                    <div class="form-item">
+                        <label for="">Descrição</label>
+                        <textarea required="true" tabindex="5" name="descricao" id="descricao" autocomplete="off"
+                            maxlength="200" cols="30" rows="5"></textarea>
+                    </div>
 
-                <input type="submit" tabindex="6" type="button" class="btn-enviar" value="Enviar">
-            </form>
-        </div>
-    </section>
+
+                    <input type="submit" tabindex="6" type="button" class="btn-enviar" value="Enviar">
+                </form>
+            </div>
+        </section>
+    </div>
 </main>
 {% endblock conteudo %}

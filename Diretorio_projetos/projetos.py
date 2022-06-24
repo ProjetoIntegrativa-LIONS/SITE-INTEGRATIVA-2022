@@ -7,6 +7,8 @@ bp_projetos = Blueprint('projetos',__name__, url_prefix="/projetos", template_fo
 
 @bp_projetos.route("/")
 def projetos():
+    nomeTela = "projetos"
     controlador = ControlProjeto();
     dados = controlador.SelectAll();    
-    return Funcoes.CarregarRota(caminhoDesktop= "projetosDesktop.html",caminhoMobile="projetosMobile.html",dados=dados)
+    return render_template("projetosDesktop.html", dados=dados, tela=nomeTela)
+    # return Funcoes.CarregarRota(caminhoDesktop= "projetosDesktop.html",caminhoMobile="projetosMobile.html",dados=dados)
