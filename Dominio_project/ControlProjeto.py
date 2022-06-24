@@ -1,5 +1,4 @@
 from datetime import datetime
-from xmlrpc.client import DateTime
 from bancoDados import Banco
 
 class Projeto():

@@ -1,9 +1,7 @@
 from datetime import datetime
 from hashlib import sha3_256
-import logging
 from enum import Enum
 from flask import render_template, session
-from werkzeug.utils import redirect
 
 from Dominio_project.ControlLogHistorico import ControlLogHistorico, LogHistorico
 
